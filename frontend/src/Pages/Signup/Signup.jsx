@@ -24,20 +24,30 @@ const Signup = () => {
     const Signupdata = {
       email,
       password,
-      confirmpasswoard,
+      // confirmpasswoard,
       name,
     };
     console.log(Signupdata);
 
-    const response = await Postdata(`auth/register`, Signupdata);
-    console.log(response.data);
+    if(password !== confirmpasswoard){
 
-    if (response.data.status) {
-      setloading(true);
+      alert('pasdasd')
 
-      console.log(response.data.message);
-      navigate("/");
+    }else{
+
+      const response = await Postdata(`auth/register`, Signupdata);
+      console.log(response.data);
+  
+      if (response.data.status) {
+        setloading(true);
+  
+        console.log(response.data.message);
+        navigate("/");
+      }
+
     }
+
+
   };
   return (
     <Container>
@@ -82,14 +92,7 @@ const Signup = () => {
             </Grid>
           </Form.Group>
 
-          {/* <Form.Group>
-            <TextField
-              label="Enter your email address"
-              type="email"
-              autoComplete="off"
-              onChange={(e) => setemail(e.target.value)}
-            />
-          </Form.Group> */}
+       
 
           <Form.Group>
             <Grid container spacing={1} alignItems="flex-end">
@@ -107,13 +110,7 @@ const Signup = () => {
             </Grid>
           </Form.Group>
 
-          {/* <Form.Group>
-            <TextField
-              label="Enter your password"
-              autoComplete="off"
-              onChange={(e) => setpassword(e.target.value)}
-            />
-          </Form.Group> */}
+        
 
           <Form.Group>
             <Grid container spacing={1} alignItems="flex-end">
@@ -131,13 +128,7 @@ const Signup = () => {
             </Grid>
           </Form.Group>
 
-          {/* <Form.Group>
-            <TextField
-              label="Confirm your password"
-              autoComplete="off"
-              onChange={(e) => setconfirmpasswoard(e.target.value)}
-            />
-          </Form.Group> */}
+ 
 
           <Button
             variant="outlined"
