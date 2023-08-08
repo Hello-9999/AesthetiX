@@ -1,0 +1,13 @@
+
+
+.Navbar .nav-icon  svg{
+
+    font-size: 2rem !important;
+} 
+.Navbar form{
+    width: 40%;
+}
+.Navbar{
+    background-color: #26333e;
+    color: #3d88c9;
+}
