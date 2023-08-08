@@ -3,12 +3,14 @@ body{
 }
 .login{
     color: aliceblue;
-    border: 2px solid;
-    width: 40rem;
+    border: 2px solid #333;
+    width: 35rem;
     margin: auto;
     margin-top: 6rem;
-    background: rgb(41,44,62);
-background: linear-gradient(72deg, rgba(41,44,62,1) 0%, rgba(28,31,43,1) 100%);
+    /* background: rgb(41,44,62);
+background: linear-gradient(72deg, rgba(41,44,62,1) 0%, rgba(28,31,43,1) 100%); */
+background-color: #242424;
+border-radius: 25px;
 }
 .login h1{
     margin-top: 2rem;
@@ -20,27 +22,32 @@ background: linear-gradient(72deg, rgba(41,44,62,1) 0%, rgba(28,31,43,1) 100%);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .login Form{
-    margin-left: 5rem !important;
+    margin-left: 2rem !important;
+    margin-right: 2rem !important;
     
 }
 .login Form svg{
     font-size: 2.1rem;
-    color: #77A9D1 ;
+    color: #8d7575 ;
 }
 .login Form .MuiFormLabel-root{
     color: #AAAAAA ;
     font-size: 1.2rem;
 }
 .login Form Button{
-    background-color: #336699;
+    background-color: #0056b3;
     color: #FFFFFF;
     /* margin-top: 3rem; */
     width: 20rem;
-    padding: 5px;
+    padding: 10px;
     font-size: 1.3rem;
     border-radius: 20px;
     margin-bottom: 3rem;
     text-align: center;
+
+}
+.login form Button:hover{
+    background-color: #003d80;
 
 }
 .login .MuiGrid-item {
@@ -56,6 +63,10 @@ background: linear-gradient(72deg, rgba(41,44,62,1) 0%, rgba(28,31,43,1) 100%);
     width: 25rem;
     border-bottom: 1px solid #336699;
 }
+.login Form .MuiInput-underline:after{
+    border-bottom: 2px solid #006400 ;
+
+}
 .login Form label + .MuiInput-formControl {
     width: 25rem;
 }
@@ -70,4 +81,11 @@ background: linear-gradient(72deg, rgba(41,44,62,1) 0%, rgba(28,31,43,1) 100%);
 }
 .login .lgn-button{
     width: 65%;
+}
+.login .new a{
+    /* color: #007bff; */
+    text-decoration: none;
+}
+.login .new a:hover{
+    text-decoration: underline;
 }
