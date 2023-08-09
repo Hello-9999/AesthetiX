@@ -5,6 +5,7 @@ import axios from "axios";
 import { Getdata } from "../../services/axios.services";
 import { useSelector } from "react-redux";
 import { Card } from "react-bootstrap";
+import Rating from "../../Component/Rating/Rating";
 
 const Home = () => {
   const [Product, setProduct] = useState([]);
@@ -29,22 +30,35 @@ const Home = () => {
         <Bar />
         {Product.map((products) => {
           console.log(products);
+          console.log(products.Reviews ? products.Reviews.length : 0);
+
           return (
             <>
               <div className="container">
-                <Card>
+                <Card style={{ width: "45%" }}>
                   <Card.Header>
-                    <Card.Title >
+                    <Card.Title>
                       <Card.Img src={products.productImage} />
                     </Card.Title>
-                   
                   </Card.Header>
                   <Card.Body>
-                    <Card.Title style={{textAlign:'center'}}>{products.name}</Card.Title>
-                     <Card.Text style={{display:'flex'}}><p>Category : </p> <h4> { products.category}</h4> </Card.Text>
-                     <Card.Body>{products.description}</Card.Body>
+                    <Rating
+                      value={products.averageRating}
+                      text={products.Reviews ? products.Reviews.length : 0}
+                      key={products._id}
+                    />
 
-                     <Card.Text  style={{textAlign:'center'}}><h3>RS : {products.price}</h3> </Card.Text>
+                    <Card.Title style={{ textAlign: "center" }}>
+                      {products.name}
+                    </Card.Title>
+                    <Card.Text style={{ display: "flex" }}>
+                      <p>Category : </p> <h4> {products.category}</h4>{" "}
+                    </Card.Text>
+                    <Card.Body>{products.description}</Card.Body>
+
+                    <Card.Text style={{ textAlign: "center" }}>
+                      <h3>RS : {products.price}</h3>{" "}
+                    </Card.Text>
                   </Card.Body>
                 </Card>
               </div>
