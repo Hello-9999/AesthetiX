@@ -1,0 +1,27 @@
+.productDetail {
+    background-color: #1a202c !important;
+    height: 100vh;
+}
+
+.productDetail .prodname{
+    font-size: 2rem;
+}
+.productDetail .prodprice{
+    font-size: 1.5rem;
+    color: #bab8b8;
+
+}
+.productDetail .prodrate {
+    font-size: 1.2rem;
+}
+.productDetail .proddesc{
+    font-size: 1.2rem;
+}
+.productDetail .prodstatus{   
+     font-size: 1.5rem;
+font-weight: 600;
+letter-spacing: 2px;
+}
+.productDetail .prodstatus h6{
+    font-size: 1.5rem;
+}
