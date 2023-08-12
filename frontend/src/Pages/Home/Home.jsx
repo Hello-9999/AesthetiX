@@ -6,32 +6,92 @@ import { Getdata } from "../../services/axios.services";
 import { useSelector } from "react-redux";
 import { Card } from "react-bootstrap";
 import Rating from "../../Component/Rating/Rating";
+import Filters from "../../Component/Filters/Filters";
 
 const Home = () => {
   const [Product, setProduct] = useState([]);
+  const [sort, setsort] = useState([]);
 
-  // const response =
+  const [Filter, setfilter] = useState({});
+
+  const [Searchvalue, setsearchvalue] = useState({});
+
   const Jwt = useSelector((state) => state.login.Jwt);
-  console.log(Jwt);
 
   const ProductData = async () => {
     const response = await Getdata(`product`, `${Jwt}`);
     setProduct(response.data.data.results);
-    // console.log(response.data.data.results)
+    console.log(response.data.data);
+    return response;
+  };
+
+  const handlesort = (value) => {
+    sort.includes(value)
+      ? setsort(sort.filter((Duplicatesort) => Duplicatesort !== value))
+      : setsort((prevState) => {
+          console.log([...prevState, value]);
+
+          return [...prevState, value];
+        });
+  };
+  const handlefilter = (key, value) => {
+    setfilter({ ...Filter, [key]: value });
+  };
+
+  const searchprod = (value) => {
+    const Servalue = value.toLowerCase();
+
+    const serachprod = Product.filter((prod) => {
+      console.log(prod.name.toLowerCase());
+      return prod.name.toLowerCase().includes(Servalue);
+    });
+    setsearchvalue(serachprod);
+
+    console.log(Searchvalue);
+  };
+
+  const fetchfilter = async () => {
+    const response = await Getdata(`product`, `${Jwt}`, {
+      params: {
+        ...Filter,
+      },
+    });
+    setProduct(response.data.data.results);
+    console.log(response.data.data);
     return response;
   };
 
   useEffect(() => {
     ProductData();
   }, []);
+
+  useEffect(() => {
+    fetchfilter();
+  }, [Filter]);
+
+  useEffect(() => {
+    handlefilter("sort", sort.join(","));
+  }, [sort]);
+
   return (
     <>
       <div>
         <Bar />
-        {Product.map((products) => {
-          console.log(products);
-          console.log(products.Reviews ? products.Reviews.length : 0);
 
+        <Filters
+          value={Product}
+          handlesort={handlesort}
+          handlefilter={handlefilter}
+        />
+
+        <div className="search">
+          <input
+            placeholder="search product"
+            onChange={(e) => searchprod(e.target.value)}
+          />
+        </div>
+
+        {Product.map((products) => {
           return (
             <>
               <div className="container">
