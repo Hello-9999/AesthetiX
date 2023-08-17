@@ -1,41 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Container } from "react-bootstrap";
 import { Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import DeleteIcon from "@mui/icons-material/Delete";
 import "../Cart/Cart.css";
-import { price } from "../../slice/Cartslice";
-import { Link } from "react-router-dom";
+import { RemovefromCart, price } from "../../slice/Cartslice";
+import { Link, useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const product = useSelector((state) => state.cart);
-
   const [price, setprice] = useState({});
   const [cartqty, setcartQty] = useState(0);
   const [tax, settax] = useState(50);
-  console.log(product.CartItem);
 
   const dispatch = useDispatch();
 
-  const Deletehandler = (e, id) => {
-    e.preventDefault();
+  console.log(productdata.CartItem);
 
-    const deleteCart = product.CartItem.filter((D) => {
-      return D.productId !== id;
-    });
-
-    product.CartItem = deleteCart;
-  };
   const totalprice = product.CartItem.reduce(
     (price, value) => price + value.productPrice,
     0
   );
 
-  console.log(totalprice);
-
   const totalQty = cartqty;
 
-  console.log("Qty", totalQty);
+  const navigate = useNavigate();
+
+  const checkout = (e) => {
+    e.preventDefault();
+
+    cartqty * totalprice === 0
+      ? alert("Buy some Product")
+      : navigate("/checkout");
+  };
 
   return (
     <>
@@ -54,7 +50,7 @@ const Cart = () => {
                         marginBottom: "5%",
                         alignItems: "center",
                         gap: "4%",
-                        justifyContent: "space-around",
+                        justifyContent: "space-between",
                       }}
                     >
                       <img src={cartI.ProductImg} alt="" />
@@ -65,19 +61,13 @@ const Cart = () => {
 
                       <select onChange={(e) => setcartQty(e.target.value)}>
                         {[...Array(cartI.productStock).keys()].map((qty) => {
-                          console.log("type", typeof cartI.Qty, cartI.Qty);
-
                           return (
-                            <>
-                              {/* { cartI.Qty === Number ? <option onSelect={cartI.Qty} value={cartI.Qty}> {cartI.Qty}</option> :  <option  value={qty + 1}>{qty + 1}</option>} */}
-
-                              {<option value={qty + 1}>{qty + 1}</option>}
-                            </>
+                            <>{<option value={qty + 1}>{qty + 1}</option>}</>
                           );
                         })}
                       </select>
 
-                      <p className="price"> {`Rs :${cartI.productPrice}`}</p>
+                      <p className="price"> {`Rs: ${cartI.productPrice}`}</p>
 
                       <Button
                         className="btn"
@@ -134,7 +124,9 @@ const Cart = () => {
                   <p> {cartqty * totalprice + tax}</p>
                 </div>
 
-                <Button fullWidth>CheckOut</Button>
+                <Button fullWidth onClick={checkout}>
+                  CheckOut
+                </Button>
               </Col>
 
               <Col className="text-center mt-5">

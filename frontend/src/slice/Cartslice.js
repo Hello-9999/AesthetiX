@@ -5,29 +5,39 @@ const CartSlice = createSlice({
   name: "cart",
   initialState: {
     CartItem: [],
-    ShippingAddress: {},
+    ShippingAddress: [],
     PaymentMethod: {},
   },
   reducers: {
-    cart: (state, data) => {
+    Addtocart: (state, data) => {
       const item = data.payload;
-      console.log(item);
 
-      const existitem = state.CartItem.find((x) => {
-        return x.productId === item.productId;
+      const duplicateData = state.CartItem.find((check) => {
+        return check.productId === item.productId;
       });
 
-      if (existitem) {
-        state.CartItem = state.CartItem.map((x) => {
-          return x.productId === item.productId ? item : x;
+      if (duplicateData) {
+        state.CartItem = state.CartItem.map((check) => {
+          return check.productId === item.productId ? item : check;
         });
       } else {
         state.CartItem = [...state.CartItem, item];
       }
+
     },
- 
+    RemovefromCart :(state , id)=>{
+
+      console.log(id.payload)
+
+      state.CartItem = state.CartItem.filter((check)=>{
+
+        return check.productId !== id.payload
+      })
+
+    }
+
   },
 });
 
 export default CartSlice.reducer;
-export const { cart, price } = CartSlice.actions;
+export const { Addtocart, price, shipingdata ,RemovefromCart } = CartSlice.actions;
