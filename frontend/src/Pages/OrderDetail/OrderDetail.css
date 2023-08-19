@@ -1,0 +1,131 @@
+
+.OrderDetail .pay {
+    /* margin: auto; */
+    margin-top: 10%;
+    margin-bottom: 20px;
+    /* margin: auto; */
+    position: relative;
+    left: 60%;
+    width: 30%;
+    right: 20%;
+}
+.OrderDetail .pay button{
+    background-color: rgb(34, 163, 34);
+    color: black;
+}
+
+.OrderDetail .card{
+
+    margin: auto;
+    width: 80%;
+    /* margin-top: 10%; */
+    background-color: #2d3748;
+    color: #eeeff1;
+
+}
+.OrderDetail .orderHeader{
+    margin: 0% 3%;
+    margin-top: 5%;
+
+}
+.OrderDetail .OrderId h6{
+    font-size: 1.3rem;
+    font-weight:500 ;
+
+} 
+.OrderDetail .OrderId h6 span{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: gray;
+}
+.OrderDetail .Track_btn button{
+    text-transform: capitalize;
+} 
+.OrderDetail .Track_btn .invoice button{
+    /* background-color: #28a745; */
+    /* color: black; */
+
+}
+.OrderDetail .Track_btn .track{
+    
+}
+.OrderDetail .orderDate {
+    margin-top: 2%;
+    margin-left: 2%;
+    border-right: 2px solid grey;
+}
+.OrderDetail .orderDate p{
+    font-size: 1.4rem;
+    color: grey;
+}
+.OrderDetail .orderDate span{
+    font-weight: 400;
+    color: rgb(229, 221, 221);
+    padding-right: 15px;
+
+}
+.OrderDetail .orderDate_Deli {
+    align-items: baseline;
+}
+.OrderDetail .Delivery svg{
+    font-size: 2.5rem;
+}
+.OrderDetail .Delivery p{
+    color: rgb(15, 198, 15);
+    font-size: 1.2rem;
+}
+.OrderDetail .prodImg img{
+    border-radius: 20px;
+}
+.OrderDetail .orderList{
+
+        margin: auto;
+width: 90%;
+}
+.OrderDetail .payment p{
+    
+    margin-top: 20px;
+    font-size: 1.3rem;
+}
+.OrderDetail .add_body p{
+    margin-top: 20px;
+    font-size: 1.3rem;
+    color: rgb(112, 124, 129);
+
+}
+.OrderDetail .address p{
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    color: rgb(217, 207, 207);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+}
+.OrderDetail .delivery-m{
+    margin-top: 10%;
+}
+.OrderDetail .delivery-m h4{
+    color: grey;
+}
+.OrderDetail .delivery-m p{
+    font-weight: 300;
+    font-size: 1.3rem;
+    margin-left: 20px;
+    color: rgb(211, 217, 220);
+
+}
+.OrderDetail .orderList h6{
+    text-transform: capitalize;
+    color: antiquewhite;
+    font-size: 1.3rem;
+
+}
+.OrderDetail .orderList .prodprice p{
+    font-size: 1.3rem;
+    color: lightblue;
+}
+.OrderDetail .Summary h6{
+    font-size: 1.4rem;
+}
+.OrderDetail .Summary p{
+    font-size: 1.4rem;
+}
