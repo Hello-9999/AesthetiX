@@ -10,6 +10,7 @@ import ShippingInfo from "./Pages/ShhipingInfo/ShippingInfo";
 import OrderSummary from "./Pages/Order/OrderSummary";
 import OrderDetail from "./Pages/OrderDetail/OrderDetail";
 import ProductList from "./Pages/Admin/ProductList";
+import Pages from "./Pages/1page/Pages";
 
 const App = () => {
   return (
@@ -17,7 +18,8 @@ const App = () => {
       <Routes>
         <Route path={"/"} element={<Signin />} />
         <Route path={"/signup"} element={<Signup />} />
-        <Route path={"/home"} element={<Home />} />
+        <Route path={"/home"} element={<Pages />} />
+        <Route path={"/shop"} element={<Home />} />
         <Route path={"/product/:id"} element={<ProductDetail />} />
         <Route path={"/cart"} element={<Cart />} />
 
