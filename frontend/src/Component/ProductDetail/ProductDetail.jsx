@@ -1,30 +1,61 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Getdata } from "../../services/axios.services";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Bar from "../Navbar/Navbar";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import Rating from "../Rating/Rating";
 import { Button, ButtonGroup, Select } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import "../ProductDetail/ProdDetail.css";
+// import { Addtocart } from "../../slice/Cartslice";
+import { Addtocart } from "../../slice/Cartslice";
+import { favouritelist } from "../../slice/Favourite";
+import FavoriteBorderRounded from "@mui/icons-material/FavoriteBorderRounded";
 
 const ProductDetail = () => {
   const { id } = useParams();
 
   const [product, setproduct] = useState({});
-  const [Qty, setQty] = useState();
+  const [Favourite, setFavourite] = useState([]);
+  const [Qty, setQty] = useState(1);
+
 
   const Jwt = useSelector((state) => state.login.Jwt);
-  console.log(Jwt);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const getproduct = async () => {
-    // const { data } = await Getdata(`product/${id}`, `${Jwt}`);
-    // setproduct(data);
-
     const response = await Getdata(`product/${id}`, `${Jwt}`);
     setproduct(response.data.data);
+    setFavourite(response.data);
     return response.data;
+  };
+
+  const handleaddcart = (product, Qty) => {
+    const data = {
+      productName: product.name,
+      productImage: product.productImage,
+      price: product.price,
+      productId: product.id,
+      productStock: product.countInStock,
+      qty: Number(Qty),
+
+      productBrand: product.brand,
+    };
+
+    dispatch(Addtocart(data));
+    
+
+    navigate("/cart");
+  };
+
+  const Favorite = (e) => {
+    e.preventDefault();
+
+    dispatch(favouritelist(Favourite.data));
+
+    alert("product has been added in your favourate");
   };
 
   useEffect(() => {
@@ -33,7 +64,6 @@ const ProductDetail = () => {
 
   return (
     <>
-      {console.log(product)}
       <div className="productDetail" style={{ color: "aliceblue" }}>
         <Bar />
 
@@ -61,9 +91,6 @@ const ProductDetail = () => {
                     )}
                   </Col>
                 </Row>
-
-                {/* {console.log(product.countInStock)} */}
-
                 <div
                   style={{
                     marginTop: "5%",
@@ -74,13 +101,16 @@ const ProductDetail = () => {
                   className="prodquantity mb-4"
                 >
                   <div>
-                    <Form.Select onChange={(e) => setQty(e.target.value)}>
-                      <option>Select quantity</option>
+                    <Form.Select
+                      onChange={(e) => setQty(Number(e.target.value))}
+                    >
+                      <option value="" disabled>
+                        Select quantity
+                      </option>
                       {[...Array(product.countInStock).keys()].map((num) => {
-                        //   console.log(num);
                         return (
                           <>
-                            <option value={num + 1}>{num + 1}</option>
+                            <option value={Number(num + 1)}>{num + 1}</option>
                           </>
                         );
                       })}
@@ -88,7 +118,7 @@ const ProductDetail = () => {
                   </div>
                   <div>
                     <Button
-                      type="button"
+                      onClick={Favorite}
                       style={{
                         border: "1px solid grey",
                         padding: "10px",
@@ -96,7 +126,8 @@ const ProductDetail = () => {
                         borderRadius: "10px",
                       }}
                     >
-                      <FavoriteIcon />{" "}
+                      <FavoriteBorderRounded />
+
                       <span
                         style={{
                           marginLeft: "10px",
@@ -108,7 +139,6 @@ const ProductDetail = () => {
                       </span>
                     </Button>
                   </div>
-                  {/* border: 1px solid slategrey; padding: 15px; color: aliceblue; */}
                 </div>
 
                 <Button
@@ -122,6 +152,8 @@ const ProductDetail = () => {
                     fontWeight: "700",
                     padding: "10px",
                   }}
+                  onClick={(e) => handleaddcart(product, Qty)}
+                  disabled={product.countInStock === 0}
                 >
                   {" "}
                   Add To cart
