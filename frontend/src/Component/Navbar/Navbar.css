@@ -8,6 +8,75 @@
     width: 40%;
 }
 .Navbar{
-    background-color: #26333e;
-    color: #3d88c9;
+    background-color: #1a202c;
+    color: #ececec;
+}
+.Navbar .MuiBox-root button .dropdown-menu[data-bs-popper] {
+
+    left: -60%;
+}
+.Navbar  .navbar-brand{
+    color: #ececec !important;
+}
+.Navbar .dropdown-toggle::after{
+    display: none;
+}
+.Navbarr #nav:hover{
+    color: #D3D3D3 ;
+}
+.Navbarr #nav{
+    display: flex;
+    align-items: center;
+    color: #BFBFBF;
+    font-size: 1.3rem;
+   
+}
+.Navbarr {
+    background-color: #1A202C   !important;
+    border-bottom: 1px solid black;
+}
+.Navbarr .navbar-brand{
+    color:  #FFFFFF ;
+    font-size: 1.6rem;
+    margin-left: 1rem;
+}
+.Navbarr #links{
+    margin-left: 15% !important;
+        font-size: 1.1rem;
+        gap: 5% !important;
+        width: 100%;
+}
+.Navbarr #links  a.nav-link{
+    color:  #FFFFFF !important;
+
+}
+.Navbarr .nav-icon svg{
+    color: #BFBFBF ;
+    font-size: 2rem;
+}
+.Navbarr .nav-icon button span h6 svg:hover {
+    color: #D3D3D3  ;
+}
+.Navbarr .nav-icon{
+    margin-right: 5%;
+}
+
+.Navbarr .nav-icon button span h6{
+    font-size: 1.1rem !important; 
+}
+.second_nav {
+    background-color: #262F3D;
+
+}
+.second_nav .navbar-brand h5{
+    color: #efdada ;
+}
+.second_nav .filter button{
+    width: 20%;
+}
+.second_nav input{
+    font-size: 1.2rem;
+}
+button.navbar-toggler.collapsed{
+    background-color: #D3D3D3;
 }

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
@@ -10,31 +9,20 @@ import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
 
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import MailIcon from "@mui/icons-material/Mail";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+
 import MoreIcon from "@mui/icons-material/MoreVert";
 import Box from "@mui/material/Box";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import "../Navbar/NavBar.css";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Link, useNavigate } from "react-router-dom";
-import Home from "../../Pages/Home/Home";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Button } from "react-bootstrap";
-import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
 
 const Bar = () => {
-  const handleProfileMenuOpen = () => {
-    setAnchorEl(event.currentTarget);
-  };
-
   const handleMobileMenuOpen = () => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-
-  const [SearchValue, setsearchvalue] = useState("");
-
-  const menuId = "primary-search-account-menu";
 
   const mobileMenuId = "primary-search-account-menu-mobile";
 
@@ -63,41 +51,21 @@ const Bar = () => {
 
   return (
     <>
-      <div className="Navbar">
-        <Navbar className="" style={{ borderBottom: "1px solid grey" }}>
-          <Container style={{ justifyContent: "flex-start" }}>
-            <Navbar.Brand>Check</Navbar.Brand>
-
-            {/* <Form className="d-flex mx-3">
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-                onChange={(e)=>setsearchvalue(e.target.value)}
-              />
-              {/* <Button variant="outline-success">Search</Button> */}
-
+      <Navbar expand="lg" className="bg-body-dark Navbarr">
+        <Container fluid>
+          <Navbar.Brand href="#">EazyBazar</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
             <Nav
-              className="me-auto my-2 my-lg-0 d-none"
+              className="me-auto my-2 my-lg-0"
               style={{ maxHeight: "100px" }}
               navbarScroll
+              id="links"
             >
-              <Nav.Link href="#action1">Home</Nav.Link>
-              <Nav.Link href="#action2">Link</Nav.Link>
-              <NavDropdown title="Link" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3"></NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">
-                  Something else here
-                </NavDropdown.Item>
-              </NavDropdown>
-              <Nav.Link href="#" disabled>
-                Link
-              </Nav.Link>
+              <Nav.Link href="/shop">Home</Nav.Link>
+              <Nav.Link href="/shop">New Arrivals</Nav.Link>
+              <Nav.Link href="/shop">Contact Us</Nav.Link>
+              <Nav.Link href="/shop">News</Nav.Link>
             </Nav>
 
             <Box sx={{ flexGrow: 1 }} />
@@ -110,7 +78,7 @@ const Bar = () => {
                 >
                   <Badge color="error">
                     <h6>
-                      Wishlist <FavoriteIcon />{" "}
+                      <FavoriteIcon />{" "}
                     </h6>
                   </Badge>
                 </IconButton>
@@ -123,7 +91,7 @@ const Bar = () => {
                   <Badge color="error">
                     <h6>
                       {" "}
-                      Cart <ShoppingCartIcon />{" "}
+                      <ShoppingCartIcon />{" "}
                     </h6>
                   </Badge>
                 </IconButton>
@@ -134,19 +102,16 @@ const Bar = () => {
                       <h6>
                         {" "}
                         {storeData.isLoggediin === true ? (
-                          <>
-                            {storeData.Name}
-                            <ArrowDropDownOutlinedIcon />{" "}
-                          </>
+                          <>{storeData.Name} </>
                         ) : (
                           <>
                             {" "}
-                            <AccountCircle /> <ArrowDropDownOutlinedIcon />{" "}
+                            <AccountCircle />{" "}
                           </>
                         )}
                       </h6>
                     }
-                    id="navbarScrollingDropdown"
+                    id="nav"
                   >
                     <NavDropdown.Item href="#action3">
                       {storeData.isLoggediin === true ? (
@@ -187,10 +152,9 @@ const Bar = () => {
                 <MoreIcon />
               </IconButton>
             </Box>
-          </Container>
-        </Navbar>
-      </div>
-      {/* <Home SearchValue = {SearchValue} /> */}
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </>
   );
 };
