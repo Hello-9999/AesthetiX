@@ -1,7 +1,12 @@
-.cart{
-    background-color: #1a202c;
-    height: 100vh;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lunasima&display=swap');
+
+body{
+
+    background-color: #1a202c !important;
 }
+
 .cart-item img{
     height: 150px;
 }
@@ -10,7 +15,6 @@
 }
 .cart-item{
     width: 90%;
-    /* margin-top: 10%; */
 }
 .Cart-box h1{
     margin-bottom: 7%;
@@ -24,6 +28,8 @@
 .summary_box h5{
     text-align: center;
     margin-bottom: 20px;
+    margin-top: 5%;
+
 }
 .summary_box div{
     width: 80%;
@@ -47,5 +53,94 @@
 
 }
 .cart-item img{
-    border-radius: 15px;
+    border-radius: 10px;
+    width: 150px;
+}
+
+ .modal-content{
+    background-color: #1f1f1f !important;
+
+}
+.login Form{
+    margin-left: 0 !important; 
+    margin-right: 0 !important; 
+}
+.notfound{
+    margin: auto;
+        text-align: center;
+
+}
+.notfound button{
+    width: 30%;
+    padding: 10px;
+    font-size: 1.4rem;
+    text-transform: capitalize;
+}
+.notfound h6{
+    font-size: 1.3rem;
+    color: #2d3748;
+    margin-bottom: 2rem;
+}
+
+
+
+
+.loginsigup_box .login{
+    margin-top: 0;
+
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+.loginsigup_box .signup{
+    width: 100%;
+    border: none;
+   
+}
+
+ .cart-box .name-brand h5{
+    font-family: 'Poppins', sans-serif; 
+
+ }
+ .cart-box .name-brand p{
+ font-family: 'Lunasima', sans-serif;
+ font-size: 1.2rem;
+ color: #c1bdbd;
+
+ }
+ .cart-box p.price{
+    font-size: 1.3rem;
+ }
+ .Summary h5{
+    font-family: 'Poppins', sans-serif;
+
+}
+.Summary p{
+    font-family: 'Lunasima', sans-serif;
+    font-size: 1.2rem;
+
+    
+}
+
+.Summary .shopping  h5{
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
+
+
+}
+.Summary .shopping a{
+    font-size: 1.2rem;
+    font-family: 'Lunasima', sans-serif;
+
+
+}
+.Cart-box .link{
+    margin-top: 3%;
+    font-size: 1.3rem;
+    font-family: 'Lunasima', sans-serif;
+
+}
+.Cart-box .link a{
+    text-decoration: none;
 }
