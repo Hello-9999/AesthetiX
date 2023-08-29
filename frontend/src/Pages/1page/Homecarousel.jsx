@@ -1,8 +1,13 @@
 import { Button } from "@mui/material";
 import Carousel from "react-bootstrap/Carousel";
-// import Container from "react-bootstrap/esm/Container";
 import { Container } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 function Homecarousel() {
+  const navigate = useNavigate();
+  const next = (e) => {
+    e.preventDefault();
+    navigate("/shop");
+  };
   return (
     <Carousel
       data-bs-theme="dark"
@@ -18,7 +23,7 @@ function Homecarousel() {
             iste.
           </p>
 
-          <Button > Shop Now </Button>
+          <Button onClick={next}> Shop Now </Button>
         </div>
       </Carousel.Item>
 
@@ -32,7 +37,7 @@ function Homecarousel() {
             iste.
           </p>
 
-          <Button > Shop Now </Button>
+          <Button onClick={next}> Shop Now </Button>
         </div>
       </Carousel.Item>
     </Carousel>
