@@ -8,8 +8,9 @@ import {
   TableBody,
   Alert,
   Link,
+  CircularProgress,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 // import { Button } from '@material-ui';
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -23,35 +24,54 @@ import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import AssignmentReturnIcon from "@mui/icons-material/AssignmentReturn";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import InfoIcon from "@mui/icons-material/Info";
+import Bar from "../../Component/Navbar/Navbar";
+import { sucesstoast,infotoast } from "../../services/tostify.service";
 
 const OrderDetail = () => {
   const id = useParams();
   console.log(id);
 
   const OrderData = useSelector((state) => state.OrderDetail);
+  console.log(OrderData);
 
-  console.log(OrderData.Data.data.payment.paymentMethod);
-
-  console.log(OrderData.Data.data);
   const date = new Date();
 
   let day = date.getDate();
   let month = date.getMonth() + 1;
   let year = date.getFullYear();
 
+  const deliverydate = new Date();
+
+  let deliveryday = deliverydate.getDate() + 5;
+  let deliverymonth = deliverydate.getMonth() + 1;
+  let deliveryyear = deliverydate.getFullYear();
+
   const currentDate = `${day}/${month}/${year}`;
+  const Deliverydate = `${deliveryday}/${deliverymonth}/${deliveryyear}`;
   console.log(currentDate);
+  const Totalprice = OrderData.Data.data.orderItems.reduce((total, next) => {
+    return total + Number(next.price);
+  }, 0);
+  const Totalqty = OrderData.Data.data.orderItems.reduce((total, next) => {
+    return total + Number(next.qty);
+  }, 0);
+
+  const tamt = Totalprice * Totalqty + 35 + 50;
+  const amt = Totalprice * Totalqty;
+
+  const [payloader, setpayloader] = useState(false);
 
   const paywithesewa = (e) => {
     e.preventDefault();
+    setpayloader(true);
 
     let path = "https://uat.esewa.com.np/epay/main";
     let params = {
-      amt: 100,
+      amt: amt,
       psc: 0,
-      pdc: 0,
-      txAmt: 0,
-      tAmt: 100,
+      pdc: 50,
+      txAmt: 35,
+      tAmt: tamt,
       pid: "ee2c3ca1-696b-4cc5-a6be-2c40d929d453",
       scd: "EPAYTEST",
       su: "http://merchant.com.np/page/esewa_payment_success",
@@ -74,6 +94,7 @@ const OrderDetail = () => {
 
     console.log("esewa pay");
   };
+
   const paywithpaypal = (e) => {
     e.preventDefault();
     console.log("esewa paypal");
@@ -82,28 +103,57 @@ const OrderDetail = () => {
   return (
     <>
       <div className="OrderDetail" style={{ color: "aliceblue" }}>
-        <div className="pay">
-          {" "}
-          {OrderData.Data.data.payment.paymentMethod === "esewa" ? (
-            <>
-              <Button onClick={paywithesewa}>Pay with Esewa</Button>
-            </>
-          ) : (
-            <>
-              {" "}
-              {OrderData.Data.data.payment.paymentMethod === "PayPal" ? (
-                <>
-                  {" "}
-                  <Button onClick={paywithpaypal}>Pay with paypal</Button>
-                </>
-              ) : (
-                <> </>
-              )}{" "}
-            </>
-          )}{" "}
-        </div>
-
+        <Bar />
         <Card>
+          <div className="paybtn d-flex">
+
+          <div className="logo mt-4 mx-2 ">
+              <h6>
+                {" "}
+                <a href="" style={{ textDecoration: "none" }}>
+                  {" "}
+                  Eazy<span>Bazar. </span>{" "}
+                </a>
+              </h6>
+            </div>
+
+            <div className="d-flex mt-5 " style={{ alignItems: "baseline" }}>
+              <h6>
+                {" "}
+                Total : <span> {Totalprice * Totalqty + 100 + 35} </span>
+              </h6>
+              <div className="pay">
+                {" "}
+                {OrderData.Data.data.payment.paymentMethod === "esewa" ? (
+                  <>
+                    <Button onClick={paywithesewa}>
+                      {payloader === true ? (
+                        <>
+                          {" "}
+                          <CircularProgress />{" "}
+                        </>
+                      ) : (
+                        <>Pay With Esewa</>
+                      )}
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    {" "}
+                    {OrderData.Data.data.payment.paymentMethod === "PayPal" ? (
+                      <>
+                        {" "}
+                        <Button onClick={paywithpaypal}>Pay with paypal</Button>
+                      </>
+                    ) : (
+                      <> </>
+                    )}{" "}
+                  </>
+                )}{" "}
+              </div>
+            </div>
+          </div>
+          <hr />
           <div
             className="orderHeader"
             style={{ display: "flex", justifyContent: "space-between" }}
@@ -140,7 +190,7 @@ const OrderDetail = () => {
               </p>
             </div>
             <div className="Delivery">
-              <p className="d-flex">
+              <p className="d-flex" style={{ alignItems: "baseline" }}>
                 {" "}
                 <p>
                   {" "}
@@ -148,18 +198,26 @@ const OrderDetail = () => {
                 </p>{" "}
                 <p className="mx-3">
                   {" "}
-                  {(OrderData.Data.data.isPaid === false &&
-                    OrderData.Data.data.payment.paymentMethod === "esewa") ||
-                  "PayPal" ? (
+                  {OrderData.Data.data.payment.paymentMethod ===
+                  "Cash on delivery" ? (
                     <>
-                      {" "}
-                      <Alert severity="error">
-                        {" "}
-                        First you have to pay the bill !!
-                      </Alert>{" "}
+                      <h6 className="deliverydate">{Deliverydate}</h6>{" "}
+                      {sucesstoast("Get ready to enjoy your order. Our delivery team will collect the payment when they drop off your goodies.")}
                     </>
                   ) : (
-                    <> 20 / 08/ 2023</>
+                    <>
+                      {(OrderData.Data.data.isPaid === false &&
+                        OrderData.Data.data.payment.paymentMethod ===
+                          "esewa") ||
+                      "PayPal" ? (
+                        <>
+                          {infotoast('Secure Checkout Ahead! Your payment is in safe hands. we"re  ready to process your order.')}
+                          <Alert severity="error"> Not Paid!!</Alert>{" "}
+                        </>
+                      ) : (
+                        <> 20 / 08/ 2023</>
+                      )}
+                    </>
                   )}{" "}
                 </p>{" "}
               </p>
@@ -171,13 +229,7 @@ const OrderDetail = () => {
           <div className="orderList">
             <TableContainer striped bordered hover letiant="dark">
               <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                <TableHead className="" style={{ padding: "10px" }}>
-                  {/* <TableRow style={{ color: "#cbd5e0" }}>
-                  <TableCell>Item</TableCell>
-                  <TableCell>Qty</TableCell>
-                  <TableCell>Price</TableCell>
-                </TableRow> */}
-                </TableHead>
+                <TableHead className="" style={{ padding: "10px" }}></TableHead>
                 <TableBody>
                   {OrderData.Data.data.orderItems.map((cartItem) => {
                     console.log(cartItem);
@@ -192,20 +244,21 @@ const OrderDetail = () => {
                               justifyContent: "space-around",
                             }}
                           >
-                            <div className="prodImg">
+                            <div className="prodImg col-3">
                               <img
                                 src={cartItem.productImage}
                                 alt={cartItem.productName}
                                 style={{
-                                  width: "150px",
                                   height: "150px",
                                 }}
                               />
                             </div>
 
-                            <h6 className="mx-3">{cartItem.productName}</h6>
+                            <div className="prodname col-5">
+                              <h6 className="mx-3">{cartItem.productName}</h6>
+                            </div>
 
-                            <div className="prodprice">
+                            <div className="prodprice col-4">
                               <p>
                                 RS :{" "}
                                 <span>
@@ -233,7 +286,10 @@ const OrderDetail = () => {
           >
             <div className="payment col-5">
               <h4>Payment</h4>
-              <p> {OrderData.Data.data.payment.paymentMethod}</p>
+              <p style={{ textTransform: "capitalize", letterSpacing: "1px" }}>
+                {" "}
+                {OrderData.Data.data.payment.paymentMethod}
+              </p>
             </div>
 
             <div className="delivery col-5">
@@ -304,7 +360,7 @@ const OrderDetail = () => {
                 style={{ justifyContent: "space-around" }}
               >
                 <h6>Subtotal</h6>
-                <p>RS 34</p>
+                <p>{Totalprice * Totalqty}</p>
               </div>
 
               <div
@@ -312,7 +368,7 @@ const OrderDetail = () => {
                 style={{ justifyContent: "space-around" }}
               >
                 <h6>Discount</h6>
-                <p>RS 34</p>
+                <p> 0</p>
               </div>
 
               <div
@@ -322,7 +378,7 @@ const OrderDetail = () => {
                 <h6>
                   Delivery <InfoIcon style={{ cursor: "pointer" }} />
                 </h6>
-                <p>RS 34</p>
+                <p>RS 100</p>
               </div>
 
               <div
@@ -332,15 +388,16 @@ const OrderDetail = () => {
                 <h6>
                   Tax <InfoIcon style={{ cursor: "pointer" }} />{" "}
                 </h6>
-                <p>RS 34</p>
+                <p>RS 35</p>
               </div>
+              <hr />
 
               <div
                 className="total d-flex"
                 style={{ justifyContent: "space-around" }}
               >
                 <p>Total</p>
-                <h6>rs</h6>
+                <h6>Rs {Totalprice * Totalqty + 100 + 35}</h6>
               </div>
             </div>
           </div>

@@ -10,6 +10,8 @@ import Signin from "../Signin/Signin";
 import SigninModal from "./Modal";
 import Bar from "../../Component/Navbar/Navbar";
 import WestIcon from "@mui/icons-material/West";
+import image from "../../../../frontend/image/pngwing.com.png";
+import { errortoast, warningtoast } from "../../services/tostify.service";
 
 const Cart = () => {
   const product = useSelector((state) => state.cart);
@@ -43,6 +45,7 @@ const Cart = () => {
     if (profile.isLoggediin === true) {
       navigate("/shipping");
     } else {
+      warningtoast('You need to sign in to proceed to checkout !! ')
       setDisplay(true);
       setHide(false);
     }
@@ -67,10 +70,7 @@ const Cart = () => {
               height: "100vh",
             }}
           >
-            <img
-              src="https://o.remove.bg/downloads/2bbd3642-f63c-4f9f-b2a9-9d78f7581fc3/image-removebg-preview.png"
-              alt=""
-            />
+            <img src={image} alt="" style={{ width: "400px" }} />
 
             <h6> Your Cart is empty !!</h6>
 
@@ -99,7 +99,7 @@ const Cart = () => {
                 style={{
                   flexWrap: "wrap",
                   justifyContent: "space-between",
-                  alignItems: "center",
+                  alignItems: "baseline",
                 }}
               >
                 <Col className="col-8 " style={{}}>
