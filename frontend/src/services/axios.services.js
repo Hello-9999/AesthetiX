@@ -1,4 +1,5 @@
 import axios from "axios";
+import { errortoast, sucesstoast } from "./tostify.service";
 
 const Server_url = import.meta.env.VITE_SERVER_URL;
 
@@ -7,9 +8,10 @@ export const Postdata = async (url, data, setloading) => {
 
   try {
     const response = await axios.post(`${Server_url}${url}`, data);
-
+    sucesstoast("Bingo!!  Your entry is granted. Welcome back to EazyBazar  !");
     return response;
   } catch (error) {
+    errortoast(error.response.data.error);
     setloading(false);
   }
 };
@@ -25,7 +27,9 @@ export const Getdata = async (url, JWT, params) => {
     });
 
     return response;
-  } catch (error) {}
+  } catch (error) {
+    errortoast(error.response.data.error);
+  }
 };
 
 export const SigninPostData = async (url, data) => {
@@ -45,11 +49,11 @@ export const OrderData = async (url, data, JWT) => {
         Authorization: `Bearer ${JWT}`,
       },
     });
-    console.log(response);
+
 
     return response;
   } catch (error) {
-    console.log(error);
+    error(error.response.data.error);
   }
 };
 
@@ -81,9 +85,11 @@ export const EditAdminprod = async (url, data, token) => {
       },
     });
 
+    sucesstoast("🚀 Ta-da !!  Product Boosted Updated successfully");
+
     return response;
   } catch (error) {
-    console.log(error.response.data.error);
+    errortoast(error.response.data.error);
   }
 };
 
@@ -99,6 +105,6 @@ export const AddAdminprod = async (url, token, data) => {
 
     return response;
   } catch (error) {
-    console.log(error);
+    errortoast(error.response.data.error);
   }
 };
