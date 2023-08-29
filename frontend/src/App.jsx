@@ -11,6 +11,8 @@ import OrderSummary from "./Pages/Order/OrderSummary";
 import OrderDetail from "./Pages/OrderDetail/OrderDetail";
 import ProductList from "./Pages/Admin/ProductList";
 import Pages from "./Pages/1page/Pages";
+import { ToastContainer } from "react-toastify";
+import SecureRoute from "./Component/SecureRoute/SecureRoute";
 
 const App = () => {
   return (
@@ -22,13 +24,17 @@ const App = () => {
         <Route path={"/shop"} element={<Home />} />
         <Route path={"/product/:id"} element={<ProductDetail />} />
         <Route path={"/cart"} element={<Cart />} />
-
         <Route path={"/shipping"} element={<ShippingInfo />} />
         <Route path={"/payment"} element={<Payment />} />
         <Route path={"/ordersummary"} element={<OrderSummary />} />
         <Route path={"/order/:orderId"} element={<OrderDetail />} />
-        <Route path={"/admin"} element={<ProductList />} />
+
+        <Route path="" element={<SecureRoute />}>
+          <Route path={"/admin"} element={<ProductList />} />
+        </Route>
       </Routes>
+
+      <ToastContainer />
     </>
   );
 };
