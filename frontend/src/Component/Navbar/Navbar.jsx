@@ -51,9 +51,19 @@ const Bar = () => {
 
   return (
     <>
-      <Navbar expand="lg" className="bg-body-dark Navbarr">
+      <Navbar expand="lg" className="bg-body-dark Navbarr"  style={{position:'sticky'}}>
         <Container fluid>
-          <Navbar.Brand href="#">EazyBazar</Navbar.Brand>
+          <Navbar.Brand href="#">
+            <div className="logo mt-4 mx-2">
+              <h6>
+                {" "}
+                <a href="" style={{ textDecoration: "none" }}>
+                  {" "}
+                  Eazy<span>Bazar. </span>{" "}
+                </a>
+              </h6>
+            </div>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav
@@ -62,7 +72,8 @@ const Bar = () => {
               navbarScroll
               id="links"
             >
-              <Nav.Link href="/shop">Home</Nav.Link>
+              <Nav.Link href="/home">Home</Nav.Link>
+              <Nav.Link href="/shop">Shop</Nav.Link>
               <Nav.Link href="/shop">New Arrivals</Nav.Link>
               <Nav.Link href="/shop">Contact Us</Nav.Link>
               <Nav.Link href="/shop">News</Nav.Link>

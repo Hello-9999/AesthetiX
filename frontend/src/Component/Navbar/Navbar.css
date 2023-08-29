@@ -43,13 +43,31 @@
 .Navbarr #links{
     margin-left: 15% !important;
         font-size: 1.1rem;
-        gap: 5% !important;
+        gap: 3% !important;
         width: 100%;
-}
-.Navbarr #links  a.nav-link{
-    color:  #FFFFFF !important;
+        font-family: 'Poppins', sans-serif;
+        transition: ease-in-out 0.1s;
+        
+       
+
 
 }
+
+
+.Navbarr #links a.nav-link:hover{
+    color: #2196F3 !important;
+    border-bottom: 2px dotted #FF9800;
+    border-radius: 2px;
+
+
+}
+.Navbarr #links  a.nav-link{
+    color:  #FFFFFF ;
+   
+
+
+}
+
 .Navbarr .nav-icon svg{
     color: #BFBFBF ;
     font-size: 2rem;
@@ -79,4 +97,30 @@
 }
 button.navbar-toggler.collapsed{
     background-color: #D3D3D3;
+}
+
+ .logo h6{
+    font-size: 1.5rem;
+}
+.logo h6 a{
+    font-family: 'M PLUS 1p', sans-serif;
+    color: #FF9800;
+
+}
+ .logo h6 a span{
+    font-family: 'Orbitron', sans-serif;
+    color: #2196F3;
+
+}
+
+.nav-item.show.dropdown h6{
+    font-family: 'M PLUS 1p', sans-serif;
+
+
+}
+.Navbarr{
+    position: sticky;
+        top: 0;
+        z-index: 2;
+
 }
