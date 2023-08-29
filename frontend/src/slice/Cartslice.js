@@ -5,7 +5,7 @@ const CartSlice = createSlice({
   name: "cart",
   initialState: {
     CartItem: [],
-    ShippingAddress: [],
+    ShippingAddress: {},
     PaymentMethod: {},
   },
   reducers: {
@@ -23,21 +23,27 @@ const CartSlice = createSlice({
       } else {
         state.CartItem = [...state.CartItem, item];
       }
-
     },
-    RemovefromCart :(state , id)=>{
-
-      console.log(id.payload)
-
-      state.CartItem = state.CartItem.filter((check)=>{
-
-        return check.productId !== id.payload
-      })
-
-    }
-
+    RemovefromCart: (state, id) => {
+      state.CartItem = state.CartItem.filter((check) => {
+        return check.productId !== id.payload;
+      });
+    },
+    ShippingDetail: (state, data) => {
+      state.ShippingAddress = data.payload;
+    },
+    PaymentDetail: (state, data) => {
+      state.PaymentMethod = data.payload;
+    },
   },
 });
 
 export default CartSlice.reducer;
-export const { Addtocart, price, shipingdata ,RemovefromCart } = CartSlice.actions;
+export const {
+  Addtocart,
+  price,
+  ShippingDetail,
+  RemovefromCart,
+  CartQty,
+  PaymentDetail,
+} = CartSlice.actions;
