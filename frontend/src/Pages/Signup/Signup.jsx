@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import { Container, Form, Row } from "react-bootstrap";
-import { Button, TextField, CircularProgress, Grid } from "@material-ui/core";
+import {
+  Button,
+  TextField,
+  CircularProgress,
+  Grid,
+  IconButton,
+} from "@material-ui/core";
 import { Postdata } from "../../services/axios.services";
 import { useNavigate } from "react-router-dom";
 import "../Signup/Signup.css";
-import PasswordIcon from "@mui/icons-material/Password";
-import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
-import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
-import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
+import { sucesstoast, warningtoast } from "../../services/tostify.service";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 const Signup = () => {
   const [email, setemail] = useState("");
@@ -16,132 +21,211 @@ const Signup = () => {
   const [name, setname] = useState("");
   const [loading, setloading] = useState(false);
   const navigate = useNavigate();
-
-  // setloading = <CircularProgressWithLabel value={progress} />
+  const [visible, setvisible] = useState(false);
+  const [confirmvisible, setconfirmvisible] = useState(false);
 
   const Signupsubmithandler = async (e) => {
     e.preventDefault();
     const Signupdata = {
       email,
       password,
-      // confirmpasswoard,
       name,
     };
-    console.log(Signupdata);
+    setloading(true);
 
-    if(password !== confirmpasswoard){
+    if (password !== confirmpasswoard) {
+      warningtoast(
+        "Uh-oh !!  Password and Confirm password mismatch. Please retype !!"
+      );
 
-      alert('pasdasd')
+      setloading(false);
+    } else {
+      const response = await Postdata(`auth/register`, Signupdata, setloading);
+      setloading(false);
 
-    }else{
-
-      const response = await Postdata(`auth/register`, Signupdata);
-      console.log(response.data);
-  
       if (response.data.status) {
-        setloading(true);
-  
-        console.log(response.data.message);
+        setloading(false);
+
         navigate("/");
+        sucesstoast(
+          "🎉 Account created! Welcome aboard and happy exploring !!"
+        );
       }
 
+      console.log(response.data);
     }
-
-
   };
+
+  const passwoardshowhide = (e) => {
+    e.preventDefault();
+    setvisible(!visible);
+  };
+
+  const confirmpasswoardshowhide = (e) => {
+    e.preventDefault();
+    setconfirmvisible(!confirmvisible);
+  };
+
   return (
-    <Container>
-      <div className="signup">
-        <h1>Sign up</h1>
-
-        <Form onSubmit={Signupsubmithandler}>
-          <Form.Group>
-            <Grid container spacing={1} alignItems="flex-end">
-              <Grid item>
-                <PersonRoundedIcon />
+    <Container
+      fluid
+      className="sign-up d-flex "
+      style={{
+        backgroundColor: "green",
+        height: "100vh",
+        padding: "0",
+        color: "aliceblue",
+      }}
+    >
+      <Container className="col-6 signup-form">
+        <h1
+          style={{
+            textAlign: "center",
+            marginTop: "5%",
+            marginBottom: "2%",
+            color: "aliceblue",
+          }}
+        >
+          Create your account
+        </h1>
+        <p>
+          <div className="new" style={{ textAlign: "center" }}>
+            <p>
+              <p style={{ color: "#90cdf4" }}>
+                Already have an account ? <a href="/"> Login</a>
+              </p>
+            </p>
+          </div>
+        </p>
+        <div className="signup">
+          <Form onSubmit={Signupsubmithandler} className="mt-5">
+            <Form.Group>
+              <Grid alignItems="flex-end">
+                <Grid item>
+                  <TextField
+                    fullWidth
+                    id="filled-basic"
+                    variant="filled"
+                    label="Enter Username"
+                    autoComplete="off"
+                    onChange={(e) => setname(e.target.value)}
+                  />
+                </Grid>
               </Grid>
-              <Grid item>
-                <TextField
-                  id="input-with-icon-grid"
-                  label="Enter Username"
-                  // placeholder="Enter your fullname"
-                  autoComplete="off"
-                  onChange={(e) => setname(e.target.value)}
-                />
-              </Grid>
-            </Grid>
-          </Form.Group>
-          {/* <Form.Group>
-            <TextField label="Enter your Full name" autoComplete="off" onChange={(e)=>setname(e.target.value)} />
-          </Form.Group> */}
+            </Form.Group>
 
-          <Form.Group>
-            <Grid container spacing={1} alignItems="flex-end">
-              <Grid item>
-                <MailOutlineRoundedIcon />
+            <Form.Group className="mt-5">
+              <Grid alignItems="flex-end">
+                <Grid item>
+                  <TextField
+                    fullWidth
+                    id="filled-basic"
+                    variant="filled"
+                    label="Enter email address"
+                    type="email"
+                    autoComplete="off"
+                    onChange={(e) => setemail(e.target.value)}
+                  />
+                </Grid>
               </Grid>
-              <Grid item>
-                <TextField
-                  id="input-with-icon-grid"
-                  label="Enter email address"
-                  type="email"
-                  autoComplete="off"
-                  onChange={(e) => setemail(e.target.value)}
-                />
+            </Form.Group>
+
+            <Form.Group className="mt-5" style={{ position: "relative" }}>
+              <Grid alignItems="flex-end">
+                <Grid item>
+                  <TextField
+                    fullWidth
+                    id="filled-basic"
+                    variant="filled"
+                    label="Enter your password"
+                    type={visible ? "text" : "password"}
+                    autoComplete="off"
+                    onChange={(e) => setpassword(e.target.value)}
+                  />
+                  <IconButton
+                    className=" btn"
+                    style={{
+                      position: "absolute",
+                      right: "5%",
+                      backgroundColor: "transparent",
+                    }}
+                    onClick={passwoardshowhide}
+                  >
+                    {visible ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                  </IconButton>
+                </Grid>
               </Grid>
-            </Grid>
-          </Form.Group>
+            </Form.Group>
 
-       
-
-          <Form.Group>
-            <Grid container spacing={1} alignItems="flex-end">
-              <Grid item>
-                <PasswordIcon />
+            <Form.Group style={{ position: "relative" }}>
+              <Grid alignItems="flex-end" className="mt-5">
+                <Grid item>
+                  <TextField
+                    fullWidth
+                    id="filled-basic"
+                    variant="filled"
+                    label="Enter your confirm  password"
+                    autoComplete="off"
+                    onChange={(e) => setconfirmpasswoard(e.target.value)}
+                    onClick={confirmpasswoardshowhide}
+                    type={confirmvisible ? "text" : "password"}
+                  />
+                  <IconButton
+                    className=" btn"
+                    style={{
+                      position: "absolute",
+                      right: "5%",
+                      backgroundColor: "transparent",
+                    }}
+                    onClick={confirmpasswoardshowhide}
+                  >
+                    {confirmvisible ? (
+                      <VisibilityIcon />
+                    ) : (
+                      <VisibilityOffIcon />
+                    )}
+                  </IconButton>
+                </Grid>
               </Grid>
-              <Grid item>
-                <TextField
-                  id="input-with-icon-grid"
-                  label="Enter your password"
-                  autoComplete="off"
-                  onChange={(e) => setpassword(e.target.value)}
-                />
-              </Grid>
-            </Grid>
-          </Form.Group>
+            </Form.Group>
 
-        
+            <Button
+              variant="outlined"
+              color="primary"
+              type="submit"
+              disabled={loading}
+              className="mt-5"
+              fullWidth
+            >
+              {loading ? <CircularProgress /> : <>Create Account</>}
+            </Button>
+          </Form>
+        </div>
+      </Container>
 
-          <Form.Group>
-            <Grid container spacing={1} alignItems="flex-end">
-              <Grid item>
-                <CheckRoundedIcon />
-              </Grid>
-              <Grid item>
-                <TextField
-                  id="input-with-icon-grid"
-                  label="Confirm your password"
-                  autoComplete="off"
-                  onChange={(e) => setconfirmpasswoard(e.target.value)}
-                />
-              </Grid>
-            </Grid>
-          </Form.Group>
-
- 
-
-          <Button
-            variant="outlined"
-            color="primary"
-            type="submmit"
-            disabled={loading}
-            
-          >
-           Create Account
-          </Button>
-          {/* {loading ? <CircularProgress color="red" /> : <>Create Account</>} */}
-        </Form>
-      </div>
+      <Container fluid className="signup-text col-6">
+        <div className="logo mt-4 mx-2">
+          <h6>
+            {" "}
+            <a href="" style={{ textDecoration: "none" }}>
+              {" "}
+              Eazy<span>Bazar. </span>{" "}
+            </a>
+          </h6>
+        </div>
+        <Container
+          className="Text "
+          style={{ textAlign: "center", marginTop: "30%", width: "80%" }}
+        >
+          <h4 style={{ fontSize: "2.5rem" }} className="second-title mt-3">
+            Sign Up Today! 🌟{" "}
+          </h4>
+          <p className="para mt-5" style={{ fontSize: "1.2rem" }}>
+            🎉 Join us at EazyBazar ! Sign up today to access a tailored
+            shopping experience, exclusive deals, and more. Let's get started!"
+          </p>
+        </Container>
+      </Container>
     </Container>
   );
 };

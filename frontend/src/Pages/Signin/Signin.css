@@ -1,15 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 body{
-    background-color:#191818 !important;
+    background-color:#171717 !important;
 }
 .login{
-    color: aliceblue;
-    border: 2px solid #333;
-    width: 35rem;
+    color: rgb(14, 14, 14);
+    /* border: 2px solid #333; */
+    padding: 15px;
+    /* width: 35rem; */
+    width: 70%;
     margin: auto;
-    margin-top: 6rem;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+
     /* background: rgb(41,44,62);
 background: linear-gradient(72deg, rgba(41,44,62,1) 0%, rgba(28,31,43,1) 100%); */
-background-color: #242424;
+background-color: #212222;
 border-radius: 25px;
 }
 .login h1{
@@ -38,7 +53,7 @@ border-radius: 25px;
     background-color: #0056b3;
     color: #FFFFFF;
     /* margin-top: 3rem; */
-    width: 20rem;
+    /* width: 20rem; */
     padding: 10px;
     font-size: 1.3rem;
     border-radius: 20px;
@@ -76,16 +91,87 @@ border-radius: 25px;
 .login Form .MuiInputBase-input{
 
     color: #CCCCCC ;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+
 }
-.login .lgn-button{
-    width: 65%;
-}
+
 .login .new a{
-    /* color: #007bff; */
     text-decoration: none;
 }
 .login .new a:hover{
     text-decoration: underline;
+}
+.login .MuiButton-root.Mui-disabled{
+    background-color: #1a1313;
+}
+.login .password{
+    width: 100%;
+}
+.login-form{
+    padding: 0 !important;
+}
+
+.login-form h4.second-title.mt-3{
+    font-family: 'Roboto', sans-serif;
+
+}
+.login-form h6.title{
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.login-form p.para{
+    font-family: 'Poppins', sans-serif;
+    line-height: 2.5rem;
+
+}
+
+.login-form .signin h1{
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.login-form .signin p{
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
+
+
+}
+
+.login-form .login-text{
+   
+    color:#dee2e2;
+}
+.login-form{
+    background: linear-gradient(191deg, #000000db,#0000009c),url(/image/pexels-mart-production-7679865.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position:center;
+}
+.login-form .signin{
+    background-color: #1d1f1e4a !important;
+}
+
+.login-form .MuiFilledInput-root{
+    background-color: #0f0d0d91;
+}
+.login-form .login span.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1{
+    color: rgb(183, 184, 184);
+    font-family: 'Poppins', sans-serif;
+
+}
+.login-form .logo h6{
+    font-size: 1.5rem;
+}
+.login-form .logo h6 a{
+    font-family: 'M PLUS 1p', sans-serif;
+    color: #FF9800;
+
+}
+.login-form .logo h6 a span{
+    font-family: 'Orbitron', sans-serif;
+    color: #2196F3;
+
 }
