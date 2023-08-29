@@ -1,0 +1,20 @@
+.linknav{
+    background-color: #1a202c;
+    /* border: 1px solid ; */
+    border-top: 2px solid #2d3748;
+    border-bottom: 2px solid #2d3748;
+    margin-bottom: 15px;
+}
+.linknav ul{
+    display: flex;
+    gap: 40px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-left: 30px;
+} 
+
+.linknav ul li{
+    list-style: none;
+    cursor: pointer;
+   
+}

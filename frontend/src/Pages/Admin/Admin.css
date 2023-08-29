@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Lunasima&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.adminprodList table thead tr th {
+    /* font-weight: bold; */
+    font-size: 1.2rem;
+    text-align: center;
+    color:aliceblue;
+    font-family: 'Poppins', sans-serif; 
+}
+
+.adminprodList table tbody tr td {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1rem;
+    color: rgb(120, 160, 195);
+    font-family: 'Lunasima', sans-serif;
+    text-transform: capitalize;
+}
+
+.adminprodList table tbody tr th {
+    text-align: center;
+    font-size: 1rem;
+    color: rgb(147, 205, 255);
+    font-family: 'Poppins', sans-serif;
+}
+
+.adminprodList table tbody tr td  img {
+    width: 200px;
+   height: 100px;
+}
+.adminprodList  #title h6 {
+    padding: 2% 5%;
+    text-transform: capitalize;
+    font-size: 1.3rem;
+
+}
+.adminprodList{
+    background-color: #14151e;
+}
+
+.adminprodList .css-i02g0k-MuiTableCell-root{
+    background-color:  #1a202c;
+    color: rgb(105, 171, 165);
+}
+.adminprodList .css-y8ay40-MuiTableCell-root{
+    background-color: #1a202c;
+    color: rgb(105, 171, 165);
+}
+.modal-content{
+    background-color: #14151e !important;
+}
+.modal-title{
+    color: aliceblue  !important;
+    font-family: 'Poppins', sans-serif; 
+    letter-spacing: 1px;
+
+}
+.modal-body .container div {
+    margin: 5% 0px !important;
+
+}
+.modalimg img{
+    width: 300px !important;
+}
+input.mb-4.form-control{
+    height: 6vh;
+    font-size: 1.3rem !important;
+    font-family: 'Poppins', sans-serif; 
+}
+
+.modal-body .container div input {
+    height: 2vh !important;
+}

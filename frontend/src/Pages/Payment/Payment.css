@@ -1,0 +1,29 @@
+
+.paymentMethod .container{
+    margin-top: 13%;
+    /* margin: auto !important; */
+}
+.paymentMethod  .card{
+    width: 50%;
+    background-color: #2d3748;
+
+    margin: auto;
+}
+.paymentMethod .card-title{
+    text-align: center;
+    margin-top: 20px;
+    color: aliceblue;
+}
+.paymentMethod .card-body  div span label{
+    color: aliceblue;
+    font-size: 1.2rem;
+}
+.paymentMethod .card-body div{
+    margin-bottom: 1.5rem;
+}
+
+.paymentMethod .card-body button{
+    margin-top: 1rem;
+    text-align: center;
+    align-items: center;
+}

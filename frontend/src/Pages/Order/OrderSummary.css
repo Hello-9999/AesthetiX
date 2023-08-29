@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lunasima&display=swap');
+
+.OrderSummary{
+
+background-color:#1a2335;
+}
+
+
+.OrderSummary .card {
+    background-color: #1a202c;
+    color: aliceblue;
+    width: 80%;
+    margin: auto;
+}
+.OrderSummary .card .product{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.prodTotal h3{
+    border-bottom: 2px solid;
+    padding-bottom: 5%;
+    margin-bottom: 5%;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+.prodTotal div{
+    margin-bottom: 4%;
+    text-align: center;
+    font-size: 1.3rem;
+
+
+}
+.OrderSummary .title{
+    text-align: center;
+    padding-top: 2%;
+    margin-bottom: 2%;
+    font-family: 'Poppins', sans-serif;
+}
+.prodTotal button{
+    color: white;
+    background-color: #259325;
+    text-transform: capitalize;
+    margin-top: 4%;
+    letter-spacing: 1px;
+    font-family: 'Lunasima', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+.prodTotal button:hover{
+    background-color: #32a832;
+
+
+}
+.prodTotal .css-rorn0c-MuiTableContainer-root:last-child(1){
+    border: none !important;
+}
+.OrderSummary table h6{
+    width: 50%;
+    text-align:justify;
+    color: #a9b3c3;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+}
+.OrderSummary .css-1ygcj2i-MuiTableCell-root{
+    color: #cbd5e0;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    
+}
+.OrderSummary .prodprice p span{
+    font-size: 1.2rem;
+    color: #90cdf4;
+    font-family: 'Poppins', sans-serif;
+}
+.OrderSummary .prodprice p {
+    font-family: 'Lunasima', sans-serif;
+
+    color: azure;
+}
+.OrderSummary .prodprice p span.rs{
+    font-family: 'Lunasima', sans-serif;
+
+    color: azure;
+
+}
+.OrderSummary .shipping p{
+color: rgb(209, 205, 205);
+font-family: 'Lunasima', sans-serif;
+    /* font-weight: bold;colo */
+}
+.OrderSummary .shipping p b{
+    color: #cbd5e0;
+}
+.OrderSummary .Total h6 small b{
+    font-size: 1rem;
+    color: aliceblue;
+}
+.OrderSummary .Total h6 {
+    color: #a9b3c3;
+    font-size: 1.3rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.loadervid{
+    width: 100%;
+        height: 100vh;
+        background-color: white;
+      
+
+}
+
+.loadervid video{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    margin: auto;
+    height: 50vh;
+    width: 90%;
+    bottom: 0%;
+}
+
+
+ .prodTotal .info h6{
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3rem;
+
+
+ }
+ .prodTotal .info p{
+    font-family: 'Lunasima', sans-serif;
+ }
+ .OrderSummary .link{
+    margin-top: 3%;
+    margin-left: 10%;
+    font-size: 1.3rem;
+    font-family: 'Lunasima', sans-serif;
+    margin-bottom: 1%;
+
+}
+.OrderSummary .link a{
+    text-decoration: none;
+}
