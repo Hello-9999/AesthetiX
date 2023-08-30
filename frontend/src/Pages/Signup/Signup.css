@@ -10,42 +10,48 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 
-body{
-    background-color:#171717 !important;
+body {
+    background-color: #171717 !important;
 }
-.signup{
+
+.signup {
     color: aliceblue;
     border: 2px solid #333;
     width: 70%;
     margin: auto;
     margin-top: 3rem;
 
-background-color: #1f1f1f;
-border-radius: 25px;
+    background-color: #1f1f1f;
+    border-radius: 25px;
 }
-.signup h1{
+
+.signup h1 {
     margin-top: 2rem;
     margin-bottom: 2rem;
     text-align: center;
-    color: #FFFFFF  !important;
+    color: #FFFFFF !important;
     letter-spacing: 2px;
     text-transform: capitalize;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-.signup Form{
+
+.signup Form {
     margin-left: 2rem !important;
     margin-right: 2rem !important;
-    
+
 }
-.signup Form svg{
+
+.signup Form svg {
     font-size: 2.1rem;
-    color: #8d7575 ;
+    color: #8d7575;
 }
-.signup Form .MuiFormLabel-root{
-    color: #AAAAAA ;
+
+.signup Form .MuiFormLabel-root {
+    color: #AAAAAA;
     font-size: 1.2rem;
 }
-.signup Form Button{
+
+.signup Form Button {
     background-color: #0056b3;
     color: #FFFFFF;
 
@@ -56,108 +62,264 @@ border-radius: 25px;
     text-align: center;
 
 }
-.signup form Button:hover{
+
+.signup form Button:hover {
     background-color: #003d80;
 
 }
+
 .signup .MuiGrid-item {
     margin-left: 5px;
 }
-.signup TextField{
+
+.signup TextField {
 
     width: 30rem !important;
 
 }
-.signup Form .MuiInput-underline:before{
+
+.signup Form .MuiInput-underline:before {
 
     width: 25rem;
     border-bottom: 1px solid #336699;
 }
-.signup Form .MuiInput-underline:after{
-    border-bottom: 2px solid #006400 ;
+
+.signup Form .MuiInput-underline:after {
+    border-bottom: 2px solid #006400;
 
 }
-.signup Form label + .MuiInput-formControl {
+
+.signup Form label+.MuiInput-formControl {
     width: 25rem;
 }
-.signup .MuiGrid-container{
+
+.signup .MuiGrid-container {
     margin-bottom: 2.4rem !important;
 }
-.signup Form .MuiInputBase-input{
 
-    color: #CCCCCC ;
+.signup Form .MuiInputBase-input {
+
+    color: #CCCCCC;
     font-size: 1.2rem;
     letter-spacing: 1px;
 }
 
-.signup .new a{
+.signup .new a {
     /* color: #007bff; */
     text-decoration: none;
 }
-.signup .new a:hover{
+
+.signup .new a:hover {
     text-decoration: underline;
 }
-.sign-up .signup-form{
+
+.sign-up .signup-form {
     background-color: #0b0c0b9c !important;
 
 }
-.sign-up{
-    background: linear-gradient(191deg, #000000db,#0000009c),url('https://e0.pxfuel.com/wallpapers/485/121/desktop-wallpaper-e-commerce-news-online-shopping.jpg');
-    background-size:cover;
+
+.sign-up {
+    background: linear-gradient(191deg, #000000db, #0000009c), url('https://e0.pxfuel.com/wallpapers/485/121/desktop-wallpaper-e-commerce-news-online-shopping.jpg');
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position:center;
+    background-position: center;
 }
-.signup-form p{
+
+.signup-form p {
     font-family: 'Poppins', sans-serif;
 
 
 }
 
-.signup-form h1{
+.signup-form h1 {
     font-family: 'Roboto', sans-serif;
     letter-spacing: 1px;
 
 }
-.signup-text h5.title{
+
+.signup-text h5.title {
     font-family: 'Poppins', sans-serif;
 
 }
 
-.signup-text p.para{
+.signup-text p.para {
     font-family: 'Poppins', sans-serif;
     line-height: 2.5rem;
 
 }
 
-.signup-text .signin h1{
+.signup-text .signin h1 {
     font-family: 'Roboto', sans-serif;
 
 }
 
-.signup-text .signin p{
+.signup-text .signin p {
     font-family: 'Roboto', sans-serif;
     font-family: 'Poppins', sans-serif;
 
 
 }
-.signup-form .MuiInputBase-input{
 
-    color: #CCCCCC ;
+.signup-form .MuiInputBase-input {
+
+    color: #CCCCCC;
     font-size: 1.1rem;
     letter-spacing: 1px;
     font-family: 'Poppins', sans-serif;
 
 }
-.signup-text .logo h6{
+
+.signup-text .logo h6 {
     font-size: 1.5rem;
 }
-.signup-text .logo h6 a{
+
+.signup-text .logo h6 a {
     font-family: 'M PLUS 1p', sans-serif;
     color: #FF9800;
 
 }
-.signup-text .logo h6 a span{
+
+.signup-text .logo h6 a span {
     font-family: 'Orbitron', sans-serif;
     color: #2196F3;
+
+}
+
+@media (max-width:320px) {
+    .sign-up {
+        flex-direction: column !important;
+    }
+
+    .signup-form {
+        width: 95% !important;
+    }
+
+    .signup-text {
+        width: 95% !important;
+    }
+
+    .Text h4 {
+        font-size: 2rem !important;
+    }
+
+    .signup {
+        width: 100%;
+    }
+
+    .signup Form {
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+    }
+}
+
+@media (min-width:320px) and (max-width:480px) {
+    .sign-up {
+        flex-direction: column !important;
+    }
+
+    .signup-form {
+        width: 95% !important;
+    }
+
+    .signup-text {
+        width: 95% !important;
+    }
+
+    .Text h4 {
+        font-size: 2rem !important;
+    }
+
+    .signup {
+        width: 100%;
+    }
+
+    .signup Form {
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+    }
+
+}
+
+@media (min-width:480px) and (max-width:575px) {
+    .sign-up {
+        flex-direction: column !important;
+    }
+
+    .signup-form {
+        width: 95% !important;
+    }
+
+    .signup-text {
+        width: 95% !important;
+    }
+
+    .Text h4 {
+        font-size: 2rem !important;
+    }
+
+    .signup {
+        width: 100%;
+    }
+
+    .signup Form {
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+    }
+
+}
+
+@media (min-width:575px) and (max-width:767px) {
+    .sign-up {
+        flex-direction: column !important;
+    }
+
+    .signup-form {
+        width: 95% !important;
+    }
+
+    .signup-text {
+        width: 95% !important;
+    }
+
+    .Text h4 {
+        font-size: 2rem !important;
+    }
+
+    .signup {
+        width: 100%;
+    }
+
+    .signup Form {
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+    }
+
+}
+
+@media (min-width:767px) and (max-width:991px) {
+    .sign-up {
+        flex-direction: column !important;
+    }
+
+    .signup-form {
+        width: 95% !important;
+    }
+
+    .signup-text {
+        width: 95% !important;
+    }
+
+    .Text h4 {
+        font-size: 2rem !important;
+    }
+
+    .signup {
+        width: 80%;
+    }
+
+    .signup Form {
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+    }
 
 }

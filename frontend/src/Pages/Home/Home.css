@@ -93,3 +93,53 @@ font-family: 'Lunasima', sans-serif;
     height: 10vh;
 }
 
+@media screen and (max-width: 320px) {
+    .product-card{
+        flex-direction: column !important;
+    }
+    .home .card{
+        margin-left: 0px;
+        width: 100% !important;
+        height: max-content !important;
+    }
+}
+@media (min-width:320px) and (max-width: 480px) {
+    .product-card{
+        flex-direction: column !important;
+    }
+    .home .card{
+        margin-left: 0px;
+        width: 100% !important;
+        height: max-content !important;
+    }
+}
+@media (min-width:480px) and (max-width: 575px) {
+    .product-card{
+        flex-direction: column !important;
+    }
+    .home .card{
+        margin-left: 0px;
+        width: 100% !important;
+        height: max-content !important;
+    }
+}
+@media (min-width:575px) and (max-width: 767px) {
+    .product-card{
+        flex-direction: column !important;
+    }
+    .home .card{
+        margin-left: 0px;
+        width: 100% !important;
+        height: max-content !important;
+    }
+}
+@media (min-width:767px) and (max-width: 991px) {
+    .product-card{
+        flex-direction: column !important;
+    }
+    .home .card{
+        margin-left: 0px;
+        width: 80% !important;
+        height: max-content !important;
+    }
+}

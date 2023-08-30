@@ -150,3 +150,129 @@ font-family: 'Lunasima', sans-serif;
 .OrderSummary .link a{
     text-decoration: none;
 }
+
+@media screen and (max-width:320px) {
+
+    .prodTotal{
+        flex-direction: column;
+    }
+    .prodTotal div{
+        width: 100% ;
+    }
+    .prodTotal div h3{
+        font-size: 1.3rem;
+    }
+    .prodTotal div h2{
+        font-size: 1.2rem;
+    }
+    
+}
+@media (min-width:320px) and (max-width:480px) {
+
+    .prodTotal{
+        flex-direction: column;
+    }
+    .prodTotal div{
+        width: 100% ;
+    }
+    .prodTotal div h3{
+        font-size: 1.3rem;
+    }
+    .prodTotal div h2{
+        font-size: 1.2rem;
+    }
+    
+}
+@media (min-width:481px) and (max-width:575px) {
+
+   
+ 
+    .prodTotal div h3{
+        font-size: 1.2rem;
+    }
+    .prodTotal div h2{
+        font-size: 1.2rem;
+    }
+    .prodTotal div h6{
+        font-size: 1rem !important;
+    }
+    .shipping p b{
+        font-size: 1.2rem;
+    }
+    .shipping p{
+        font-size: 1.1rem;
+    }
+    .OrderSummary .Total h6 {
+        font-size: 1.3rem !important;
+    }
+}
+@media (min-width:575px) and (max-width:767px) {
+
+   
+ 
+    .prodTotal div h3{
+        font-size: 1.2rem;
+    }
+    .prodTotal div h2{
+        font-size: 1.2rem;
+    }
+    .prodTotal div h6{
+        font-size: 1rem !important;
+    }
+    .shipping p b{
+        font-size: 1.2rem;
+    }
+    .shipping p{
+        font-size: 1.1rem;
+    }
+    .OrderSummary .Total h6 {
+        font-size: 1.3rem !important;
+    }
+}
+@media (min-width:767px) and (max-width:991px) {
+
+   
+ 
+    .prodTotal div h3{
+        font-size: 1.2rem;
+    }
+    .prodTotal div h2{
+        font-size: 1.2rem;
+    }
+    .prodTotal div h6{
+        font-size: 1rem !important;
+    }
+    .shipping p b{
+        font-size: 1.2rem;
+    }
+    .shipping p{
+        font-size: 1.1rem;
+    }
+    .OrderSummary .Total h6 {
+        font-size: 1.3rem !important;
+    }
+}
+
+@media (min-width:991px) and (max-width:1199px) {
+
+   
+ 
+    .prodTotal div h3{
+        font-size: 1.2rem;
+    }
+    .prodTotal div h2{
+        font-size: 1.2rem;
+    }
+    .prodTotal div h6{
+        font-size: 1rem !important;
+    }
+    .shipping p b{
+        font-size: 1.2rem;
+    }
+    .shipping p{
+        font-size: 1.1rem;
+    }
+    .OrderSummary .Total h6 {
+        font-size: 1.3rem !important;
+    }
+}

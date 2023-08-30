@@ -71,3 +71,123 @@
 .Shipping .link a{
     text-decoration: none;
 }
+
+@media screen and (max-width:320px) {
+    form div{
+        flex-direction: column;
+        width: 100% !important;
+    }
+    .Shipping{
+        width: 90%;
+    }
+    form input{
+        width: 90%;
+    }
+    .Shipping form h6{
+        display: none;
+    }
+    .Shipping h1{
+        font-size: 1.5rem !important;
+    }
+    .Shipping .footer{
+        font-size: 1.2rem;
+        margin-bottom: 5rem;
+    }
+    
+}
+
+@media (min-width:320px) and (max-width:480px) {
+    form div{
+        flex-direction: column;
+        width: 100% !important;
+    }
+    .Shipping{
+        width: 90%;
+    }
+    form input{
+        width: 90%;
+    }
+    .Shipping form h6{
+        display: none;
+    }
+    .Shipping h1{
+        font-size: 1.5rem !important;
+    }
+    .Shipping .footer{
+        font-size: 1.2rem;
+        margin-bottom: 5rem;
+    }
+    
+}
+
+@media (min-width:480px) and (max-width:575px) {
+    form div{
+        flex-direction: column;
+        width: 100% !important;
+    }
+    .Shipping{
+        width: 90%;
+    }
+    form input{
+        width: 90%;
+    }
+    .Shipping form h6{
+        display: none;
+    }
+    .Shipping h1{
+        font-size: 1.5rem !important;
+    }
+    .Shipping .footer{
+        font-size: 1.2rem;
+        margin-bottom: 5rem;
+    }
+    
+}
+
+@media (min-width:575px) and (max-width:767px) {
+    form div{
+        flex-direction: column;
+        width: 100% !important;
+    }
+    .Shipping{
+        width: 90%;
+    }
+    form input{
+        width: 90%;
+    }
+    .Shipping form h6{
+        display: none;
+    }
+    .Shipping h1{
+        font-size: 1.5rem !important;
+    }
+    .Shipping .footer{
+        font-size: 1.2rem;
+        margin-bottom: 5rem;
+    }
+    
+}
+
+@media (min-width:767px) and (max-width:991px) {
+    form div{
+        flex-direction: column;
+        width: 100% !important;
+    }
+    .Shipping{
+        width: 90%;
+    }
+    form input{
+        width: 90%;
+    }
+    .Shipping form h6{
+        display: none;
+    }
+    .Shipping h1{
+        font-size: 1.5rem !important;
+    }
+    .Shipping .footer{
+        font-size: 1.2rem;
+        margin-bottom: 5rem;
+    }
+    
+}

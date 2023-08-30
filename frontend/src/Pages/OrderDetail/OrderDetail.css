@@ -1,131 +1,782 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lunasima&display=swap');
 
 .OrderDetail .pay {
-    /* margin: auto; */
-    margin-top: 10%;
+
     margin-bottom: 20px;
-    /* margin: auto; */
-    position: relative;
-    left: 60%;
-    width: 30%;
-    right: 20%;
-}
-.OrderDetail .pay button{
-    background-color: rgb(34, 163, 34);
-    color: black;
+
 }
 
-.OrderDetail .card{
+.OrderDetail .pay button {
+    background-color: rgb(34, 163, 34);
+    color: black;
+    font-family: 'Lunasima', sans-serif;
+    font-size: 1rem;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.OrderDetail .paybtn {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 5%;
+}
+
+.OrderDetail .paybtn div {
+    gap: 10%;
+    width: 50%;
+}
+
+.OrderDetail .paybtn h6 {
+    font-family: 'Lunasima', sans-serif;
+    font-size: 1.5rem;
+
+}
+
+.OrderDetail .paybtn span {
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.OrderDetail .card {
 
     margin: auto;
     width: 80%;
-    /* margin-top: 10%; */
+    margin-top: 5%;
     background-color: #2d3748;
     color: #eeeff1;
 
 }
-.OrderDetail .orderHeader{
+
+.OrderDetail .orderHeader {
     margin: 0% 3%;
     margin-top: 5%;
 
 }
-.OrderDetail .OrderId h6{
+
+.OrderDetail .OrderId h6 {
     font-size: 1.3rem;
-    font-weight:500 ;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
 
-} 
-.OrderDetail .OrderId h6 span{
+}
+
+.OrderDetail .OrderId h6 span {
     font-size: 1.5rem;
-    font-weight: bold;
-    color: gray;
+    /* font-weight: bold; */
+    color: rgb(178, 175, 175);
 }
-.OrderDetail .Track_btn button{
-    text-transform: capitalize;
-} 
-.OrderDetail .Track_btn .invoice button{
-    /* background-color: #28a745; */
-    /* color: black; */
 
+.OrderDetail .Track_btn button {
+    text-transform: capitalize;
 }
-.OrderDetail .Track_btn .track{
-    
-}
+
 .OrderDetail .orderDate {
     margin-top: 2%;
     margin-left: 2%;
     border-right: 2px solid grey;
 }
-.OrderDetail .orderDate p{
+
+.OrderDetail .orderDate p {
     font-size: 1.4rem;
     color: grey;
 }
-.OrderDetail .orderDate span{
+
+.OrderDetail .orderDate span {
     font-weight: 400;
     color: rgb(229, 221, 221);
     padding-right: 15px;
 
 }
+
 .OrderDetail .orderDate_Deli {
     align-items: baseline;
 }
-.OrderDetail .Delivery svg{
+
+.OrderDetail .Delivery svg {
     font-size: 2.5rem;
 }
-.OrderDetail .Delivery p{
+
+.OrderDetail .Delivery p {
     color: rgb(15, 198, 15);
     font-size: 1.2rem;
 }
-.OrderDetail .prodImg img{
+
+.OrderDetail .prodImg img {
+    width: 80%;
     border-radius: 20px;
 }
-.OrderDetail .orderList{
 
-        margin: auto;
-width: 90%;
+.OrderDetail .orderList {
+
+    margin: auto;
+    width: 90%;
 }
-.OrderDetail .payment p{
-    
+
+.OrderDetail .payment p {
+
     margin-top: 20px;
     font-size: 1.3rem;
 }
-.OrderDetail .add_body p{
+
+.OrderDetail .add_body p {
     margin-top: 20px;
     font-size: 1.3rem;
     color: rgb(112, 124, 129);
 
 }
-.OrderDetail .address p{
+
+.OrderDetail .address p {
     font-size: 1.4rem;
     text-transform: capitalize;
     color: rgb(217, 207, 207);
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
-.OrderDetail .delivery-m{
+
+.OrderDetail .delivery-m {
     margin-top: 10%;
 }
-.OrderDetail .delivery-m h4{
+
+.OrderDetail .delivery-m h4 {
     color: grey;
 }
-.OrderDetail .delivery-m p{
+
+.OrderDetail .delivery-m p {
     font-weight: 300;
     font-size: 1.3rem;
     margin-left: 20px;
     color: rgb(211, 217, 220);
 
 }
-.OrderDetail .orderList h6{
+
+.OrderDetail .orderList h6 {
     text-transform: capitalize;
     color: antiquewhite;
     font-size: 1.3rem;
+    font-family: 'Poppins', sans-serif;
 
 }
-.OrderDetail .orderList .prodprice p{
+
+.OrderDetail .orderList .prodprice p {
+    font-family: 'Poppins', sans-serif;
     font-size: 1.3rem;
     color: lightblue;
 }
-.OrderDetail .Summary h6{
+
+.OrderDetail .Summary h6 {
     font-size: 1.4rem;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
 }
-.OrderDetail .Summary p{
+
+.OrderDetail .Summary p {
     font-size: 1.4rem;
+    font-family: 'Lunasima', sans-serif;
+}
+
+.OrderDetail .orderList .prodprice .qty p {
+    font-size: 1.2rem;
+    font-family: 'Lunasima', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #a0a5a9;
+
+}
+
+.OrderDetail h6.deliverydate {
+    color: #e5dddd;
+    font-size: 1.2rem;
+    font-family: 'Lunasima', sans-serif;
+}
+
+.OrderDetail .payment h4 {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+
+}
+
+.OrderDetail .delivery h4 {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+}
+
+.OrderDetail .add_body p {
+    font-family: 'Lunasima', sans-serif;
+
+}
+
+.OrderDetail .need_help p {
+    font-family: 'Lunasima', sans-serif;
+    font-size: 1.3rem;
+
+}
+
+.OrderDetail .need_help svg {
+    font-size: 1.8rem;
+}
+
+.OrderDetail .need_help a {
+    text-decoration: none;
+}
+
+.OrderDetail .paybtn h6 {
+    margin-left: 2rem;
+}
+
+@media screen and (max-width:320px) {
+    .OrderDetail .paybtn div {
+        width: 100%;
+        /* flex-direction: column; */
+    }
+
+    .paybtn .d-flex {
+        flex-direction: column;
+        margin-top: 1rem !important;
+    }
+
+    .paybtn h6 {
+        margin-left: 0rem !important;
+        font-size: 1rem !important;
+    }
+
+    .OrderDetail .crd .card {
+        margin-top: 0% !important;
+        height: 100vh !important;
+    }
+
+
+
+    .orderHeader {
+        flex-direction: column;
+        /* display: none !important; */
+    }
+
+    .OrderDetail .OrderId h6 {
+        font-size: 1.2rem !important;
+    }
+
+    .OrderDetail .OrderId h6 span {
+        font-size: 1.1rem !important;
+
+    }
+
+    .OrderDetail .orderDate_Deli {
+        /* display: none !important; */
+        flex-direction: column;
+        margin-top: 5%;
+        border-right: none !important;
+    }
+
+    .OrderDetail .Delivery p {
+        flex-direction: column;
+    }
+
+
+
+    .payment_detail {
+        flex-direction: column !important;
+    }
+
+    .payment_detail div {
+        margin: auto;
+        width: 90%;
+    }
+    .payment_detail h4{
+        /* border-bottom:  2px solid ; */
+        text-align: center;
+    }
+    .summary-box{
+        flex-direction: column-reverse;
+    }
+    .OrderDetail .Summary h6 {
+        font-size: 1.1rem;
+    }
+    .OrderDetail .Summary p{
+        font-size: 1.2rem;
+    }
+    .OrderDetail .need_help p {
+        font-size: 1rem;
+    }
+    .OrderDetail .payment h4 {
+        font-size: 1rem;
+    }
+    .OrderDetail .delivery h4{
+        font-size: 1rem;
+    }
+    .OrderDetail .address p {
+        font-size: 1.2rem;
+    }
+    .OrderDetail .orderList h6{
+        font-size: 1rem !important;
+    }
+
+}
+
+@media (min-width:320px) and (max-width:480px) {
+    .OrderDetail .paybtn div {
+        width: 100%;
+        /* flex-direction: column; */
+    }
+
+    .paybtn .d-flex {
+        flex-direction: column;
+        margin-top: 1rem !important;
+    }
+
+    .paybtn h6 {
+        margin-left: 0rem !important;
+        font-size: 1rem !important;
+    }
+
+    .OrderDetail .crd .card {
+        margin-top: 0% !important;
+        /* height: 100vh !important; */
+    }
+
+
+
+    .orderHeader {
+        flex-direction: column;
+        /* display: none !important; */
+    }
+
+    .OrderDetail .OrderId h6 {
+        font-size: 1.2rem !important;
+    }
+
+    .OrderDetail .OrderId h6 span {
+        font-size: 1.1rem !important;
+
+    }
+
+    .OrderDetail .orderDate_Deli {
+        /* display: none !important; */
+        flex-direction: column;
+        margin-top: 5%;
+        border-right: none !important;
+    }
+
+    .OrderDetail .Delivery p {
+        flex-direction: column;
+    }
+
+    .Summary {
+        /* display: none !important; */
+    }
+
+    .payment_detail {
+        flex-direction: column !important;
+    }
+
+    .payment_detail div {
+        margin: auto;
+        width: 90%;
+    }
+    .payment_detail h4{
+        /* border-bottom:  2px solid ; */
+        text-align: center;
+    }
+    .summary-box{
+        flex-direction: column-reverse;
+    }
+    .OrderDetail .Summary h6 {
+        font-size: 1.1rem !important;
+    }
+    .OrderDetail .Summary p{
+        font-size: 1.2rem;
+    }
+    .OrderDetail .need_help p {
+        font-size: 1rem;
+    }
+    .OrderDetail .payment h4 {
+        font-size: 1rem;
+    }
+    .OrderDetail .delivery h4{
+        font-size: 1rem;
+    }
+    .OrderDetail .address p {
+        font-size: 1.2rem;
+    }
+
+
+    
+
+}
+
+@media (min-width:480px) and (max-width:575px) {
+
+    .OrderDetail .paybtn div {
+        width: 100%;
+        /* flex-direction: column; */
+    }
+
+    .paybtn .d-flex {
+        flex-direction: column;
+        margin-top: 1rem !important;
+    }
+
+    .paybtn h6 {
+        margin-left: 0rem !important;
+        font-size: 1rem !important;
+    }
+
+    .OrderDetail .crd .card {
+        margin-top: 0% !important;
+        /* height: 100vh !important; */
+    }
+
+
+
+    .orderHeader {
+        flex-direction: column;
+        /* display: none !important; */
+    }
+
+    .OrderDetail .OrderId h6 {
+        font-size: 1.2rem !important;
+    }
+
+    .OrderDetail .OrderId h6 span {
+        font-size: 1.1rem !important;
+
+    }
+
+    .OrderDetail .orderDate_Deli {
+        /* display: none !important; */
+        flex-direction: column;
+        margin-top: 5%;
+        border-right: none !important;
+    }
+
+    .OrderDetail .Delivery p {
+        flex-direction: column;
+    }
+
+    .Summary {
+        /* display: none !important; */
+    }
+
+    .payment_detail {
+        flex-direction: column !important;
+    }
+
+    .payment_detail div {
+        margin: auto;
+        width: 90%;
+    }
+    .payment_detail h4{
+        /* border-bottom:  2px solid ; */
+        text-align: center;
+    }
+    .summary-box{
+        flex-direction: column-reverse;
+    }
+    .OrderDetail .Summary h6 {
+        font-size: 1.1rem !important;
+    }
+    .OrderDetail .Summary p{
+        font-size: 1.2rem;
+    }
+    .OrderDetail .need_help p {
+        font-size: 1rem;
+    }
+    .OrderDetail .payment h4 {
+        font-size: 1rem;
+    }
+    .OrderDetail .delivery h4{
+        font-size: 1rem;
+    }
+    .OrderDetail .address p {
+        font-size: 1.2rem;
+    }
+
+
+    
+
+}
+
+@media (min-width:575px) and (max-width:767px) {
+
+    .OrderDetail .card{
+        width: 95% !important;
+    }
+    
+    .OrderDetail .paybtn div {
+        width: 100%;
+        /* flex-direction: column; */
+    }
+
+    .paybtn .d-flex {
+        /* flex-direction: column; */
+        margin-top: 1rem !important;
+    }
+
+    .paybtn h6 {
+        margin-left: 0rem !important;
+        font-size: 1.2rem !important;
+    }
+
+    .OrderDetail .crd .card {
+        margin-top: 0% !important;
+        /* height: 100vh !important; */
+    }
+    .need_help{
+        margin-left: 0% !important;
+    }
+    .Summary.col-6{
+        width: 45% !important;
+    }
+
+
+
+    .orderHeader {
+        /* flex-direction: column; */
+        /* display: none !important; */
+    }
+
+    .OrderDetail .OrderId h6 {
+        font-size: 1.2rem !important;
+    }
+
+    .OrderDetail .OrderId h6 span {
+        font-size: 1.1rem !important;
+
+    }
+
+    .OrderDetail .orderDate_Deli {
+        /* display: none !important; */
+        margin-top: 5%;
+        border-right: none !important;
+    }
+
+    .OrderDetail .Delivery p {
+        /* flex-direction: column; */
+        align-items: center !important;
+    }
+
+
+
+
+    .payment_detail h4{
+        /* border-bottom:  2px solid ; */
+        text-align: center;
+    }
+    .summary-box{
+        /* flex-direction: column-reverse; */
+    }
+    .OrderDetail .Summary h6 {
+        font-size: 1.1rem !important;
+    }
+    .OrderDetail .Summary p{
+        font-size: 1.2rem;
+    }
+    .OrderDetail .need_help p {
+        font-size: 1rem;
+        text-align: center;
+    }
+    .OrderDetail .payment h4 {
+        font-size: 1rem;
+    }
+    .OrderDetail .delivery h4{
+        font-size: 1rem;
+    }
+    .OrderDetail .address p {
+        font-size: 1.2rem;
+    }
+
+
+    
+
+}
+
+@media (min-width:767px) and (max-width:991px) {
+
+    .OrderDetail .card{
+        width: 95% !important;
+    }
+    
+    .OrderDetail .paybtn div {
+        width: 100%;
+        /* flex-direction: column; */
+    }
+
+    .paybtn .d-flex {
+        /* flex-direction: column; */
+        margin-top: 1rem !important;
+    }
+
+    .paybtn h6 {
+        margin-left: 0rem !important;
+        font-size: 1.2rem !important;
+    }
+
+    .OrderDetail .crd .card {
+        margin-top: 0% !important;
+        /* height: 100vh !important; */
+    }
+    .need_help{
+        margin-left: 0% !important;
+    }
+    .Summary.col-6{
+        width: 45% !important;
+    }
+
+
+
+    .orderHeader {
+        /* flex-direction: column; */
+        /* display: none !important; */
+    }
+
+    .OrderDetail .OrderId h6 {
+        font-size: 1.2rem !important;
+    }
+
+    .OrderDetail .OrderId h6 span {
+        font-size: 1.1rem !important;
+
+    }
+
+    .OrderDetail .orderDate_Deli {
+        /* display: none !important; */
+        margin-top: 5%;
+        border-right: none !important;
+    }
+
+    .OrderDetail .Delivery p {
+        /* flex-direction: column; */
+        align-items: center !important;
+    }
+
+
+
+
+    .payment_detail h4{
+        /* border-bottom:  2px solid ; */
+        text-align: center;
+    }
+    .summary-box{
+        /* flex-direction: column-reverse; */
+    }
+    .OrderDetail .Summary h6 {
+        font-size: 1.1rem !important;
+    }
+    .OrderDetail .Summary p{
+        font-size: 1.2rem;
+    }
+    .OrderDetail .need_help p {
+        font-size: 1rem;
+        text-align: center;
+    }
+    .OrderDetail .payment h4 {
+        font-size: 1rem;
+    }
+    .OrderDetail .delivery h4{
+        font-size: 1rem;
+    }
+    .OrderDetail .address p {
+        font-size: 1.2rem;
+    }
+
+
+    
+
+}
+
+@media (min-width:991px) and (max-width:1199px) {
+
+    .OrderDetail .card{
+        width: 95% !important;
+    }
+    
+    .OrderDetail .paybtn div {
+        width: fit-content;
+        margin: 0% 5%;
+        gap: 2%;
+        /* flex-direction: column; */
+    }
+
+    .paybtn .d-flex {
+        /* flex-direction: column; */
+        margin-top: 1rem !important;
+    }
+
+    .paybtn h6 {
+        margin-left: 0rem !important;
+        font-size: 1.2rem !important;
+    }
+
+    .OrderDetail .crd .card {
+        margin-top: 0% !important;
+        /* height: 100vh !important; */
+    }
+    .need_help{
+        margin-left: 0% !important;
+    }
+    .Summary.col-6{
+        width: 45% !important;
+    }
+
+
+
+    .orderHeader {
+        /* flex-direction: column; */
+        /* display: none !important; */
+    }
+
+    .OrderDetail .OrderId h6 {
+        font-size: 1.2rem !important;
+    }
+
+    .OrderDetail .OrderId h6 span {
+        font-size: 1.3rem !important;
+
+    }
+
+    .OrderDetail .orderDate_Deli {
+        /* display: none !important; */
+        margin-top: 5%;
+        border-right: none !important;
+    }
+
+    .OrderDetail .Delivery p {
+        /* flex-direction: column; */
+        align-items: center !important;
+    }
+
+
+
+
+    .payment_detail h4{
+        /* border-bottom:  2px solid ; */
+        text-align: center;
+    }
+    .summary-box{
+        /* flex-direction: column-reverse; */
+    }
+    .OrderDetail .Summary h6 {
+        font-size: 1.4rem !important;
+    }
+    .OrderDetail .Summary p{
+        font-size: 1.3rem;
+    }
+    .OrderDetail .need_help p {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    .OrderDetail .payment h4 {
+        font-size: 1.4rem;
+    }
+    .OrderDetail .delivery h4{
+        font-size: 1.4rem;
+    }
+    .OrderDetail .address p {
+        font-size: 1.4rem;
+    }
+
+
+    
+
 }
