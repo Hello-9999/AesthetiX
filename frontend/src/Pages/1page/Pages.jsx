@@ -2,21 +2,26 @@ import React from "react";
 import Homenav from "./Homenav";
 import { Card } from "react-bootstrap";
 // import { Link } from 'react-router-dom'
-import "../1page/Home.css";
+import "../1page/1page.css";
 import Homecarousel from "./Homecarousel";
 import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import ProductList from "../Admin/ProductList";
+import Bar from "../../Component/Navbar/Navbar";
 
-import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
-import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
 
 const Pages = () => {
+  const logindata = useSelector((state)=>state.login)
+  console.log(logindata.Role)
+
+  const navigate=useNavigate()
 
     
   return (
     <>
-      <div className="Home">
-        <Homenav />
+   <div className="Home">
+        <Bar/>
 
         <div className="offer">
           <p>
@@ -86,7 +91,6 @@ const Pages = () => {
             <img
               src="https://images.pexels.com/photos/1619801/pexels-photo-1619801.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
               alt=""
-              //   style={{ width: "100%", height: "80vh" }}
             />
             <div className="card-text">
               <h6>Kid's Fashion</h6>
@@ -159,6 +163,7 @@ const Pages = () => {
           </Container>
         </footer>
       </div>
+     
     </>
   );
 };

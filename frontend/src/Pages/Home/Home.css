@@ -92,6 +92,15 @@ font-family: 'Lunasima', sans-serif;
     width: 10%;
     height: 10vh;
 }
+.home nav.second_nav.navbar.navbar-expand-lg.navbar-light{
+    position: relative !important;
+    z-index: 0 !important;
+    top: 0 !important;
+
+}
+
+
+
 
 @media screen and (max-width: 320px) {
     .product-card{
@@ -101,6 +110,9 @@ font-family: 'Lunasima', sans-serif;
         margin-left: 0px;
         width: 100% !important;
         height: max-content !important;
+    }
+    .second_nav .container.col-4         {
+        width: fit-content;
     }
 }
 @media (min-width:320px) and (max-width: 480px) {

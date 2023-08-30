@@ -37,6 +37,8 @@ const Cart = () => {
   const Deletehandler = (e, id) => {
     e.preventDefault();
     dispatch(RemovefromCart(id));
+    errortoast('product has been delete Sucessfully !!')
+    
   };
 
   const checkout = (e) => {
@@ -50,6 +52,12 @@ const Cart = () => {
       setHide(false);
     }
   };
+  const closemodal =(e)=>{
+    e.preventDefault()
+    console.log('first')
+    setDisplay(false)
+
+  }
   const Shopnow = (e) => {
     e.preventDefault();
     navigate("/shop");
@@ -57,8 +65,7 @@ const Cart = () => {
   const id = localStorage.getItem("id");
   return (
     <>
-      <SigninModal Display={Display} Hide={Hide} setDisplay={setDisplay} />
-      {/* <Bar /> */}
+      <SigninModal closemodal={closemodal} Display={Display} Hide={Hide} setDisplay={setDisplay} />
 
       {product.CartItem.length === 0 ? (
         <>
@@ -95,14 +102,14 @@ const Cart = () => {
               </div>
 
               <div
-                className="d-flex pt-5 w-90"
+                className="d-flex pt-5 w-90 cart"
                 style={{
                   flexWrap: "wrap",
                   justifyContent: "space-between",
                   alignItems: "baseline",
                 }}
               >
-                <Col className="col-8 " style={{}}>
+                <Col className="col-8 cart-box" style={{}}>
                   <h1>{`Shopping Cart ( ${product.CartItem.length} item)`}</h1>
 
                   <div className="cart-box ">
@@ -118,15 +125,17 @@ const Cart = () => {
                             justifyContent: "space-between",
                           }}
                         >
-                          <div className="col-3">
+                          
+                          <div className="col-6 cart-img">
                             <img
                               src={cartI.productImage}
                               alt={cartI.productName}
                             />
                           </div>
+                          <div className="cart-detail">
 
                           <div
-                            className="name-brand col-5"
+                            className="name-brand col-2"
                             style={{ textTransform: "capitalize" }}
                           >
                             <h5>{cartI.productName}</h5>
@@ -171,6 +180,7 @@ const Cart = () => {
                               <DeleteIcon />
                             </Button>
                           </div>
+                          </div>
                         </div>
                       );
                     })}
@@ -181,7 +191,6 @@ const Cart = () => {
                   <Col
                     className=" Summary col-4"
                     md={4}
-                    // style={{ width: "30%" }}
                   >
                     <Col className="summary_box">
                       <div className="title">

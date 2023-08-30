@@ -45,7 +45,7 @@ const OrderSummary = () => {
 
   const Proceed = async (e) => {
     e.preventDefault();
-
+   
     const Orderdata = {
       orderItems: cart.CartItem,
       shipping: cart.ShippingAddress,
@@ -87,7 +87,7 @@ const OrderSummary = () => {
               visible={true}
             />
           </div>
-          {navigate(`/order/${id}`)}
+         {navigate(`/order/${id}`)}
         </>
       ) : (
         <>

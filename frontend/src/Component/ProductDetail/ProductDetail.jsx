@@ -184,7 +184,7 @@ const ProductDetail = () => {
                   </div>
                 </Col>
 
-                <Col md={7} className="prodimg">
+                <Col md={7} className="prodimg mt-5" >
                   <img src={product.productImage} />
                 </Col>
               </Row>

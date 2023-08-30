@@ -177,6 +177,16 @@ body {
     text-decoration: none;
 }
 
+.modal-header .btn-close{
+    background-color: azure;
+}
+.login{
+    border-radius: 0 !important;
+}
+.modal-title h1{
+    font-size: 2rem !important;
+}
+
 @media screen and (max-width:320px) {
     .cart {
         flex-direction: column;
@@ -316,7 +326,7 @@ body {
     }
 
     .cart-detail div {
-        width: 30%;
+        width: 20% !important;
     }
 
     .cart-box .name-brand h5 {

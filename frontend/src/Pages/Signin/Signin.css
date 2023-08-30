@@ -16,16 +16,12 @@ body {
 
 .login {
     color: rgb(14, 14, 14);
-    /* border: 2px solid #333; */
     padding: 15px;
-    /* width: 35rem; */
     width: 70%;
     margin: auto;
     margin-top: 3rem;
     margin-bottom: 5rem;
 
-    /* background: rgb(41,44,62);
-background: linear-gradient(72deg, rgba(41,44,62,1) 0%, rgba(28,31,43,1) 100%); */
     background-color: #212222;
     border-radius: 25px;
 }
@@ -59,8 +55,7 @@ background: linear-gradient(72deg, rgba(41,44,62,1) 0%, rgba(28,31,43,1) 100%); 
 .login Form Button {
     background-color: #0056b3;
     color: #FFFFFF;
-    /* margin-top: 3rem; */
-    /* width: 20rem; */
+    
     padding: 10px;
     font-size: 1.3rem;
     border-radius: 20px;

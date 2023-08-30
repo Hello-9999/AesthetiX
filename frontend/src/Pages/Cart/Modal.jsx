@@ -21,8 +21,9 @@ import { Dna, FallingLines } from "react-loader-spinner";
 import "../Cart/cart.css";
 import Signup from "../Signup/Signup";
 import Signin from "../Signin/Signin";
+import CloseIcon from '@mui/icons-material/Close';
 
-function SigninModal({ Display, Hide, setDisplay }) {
+function SigninModal({ Display, Hide, setDisplay , closemodal }) {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [loading, setloading] = useState(false);
@@ -77,6 +78,8 @@ function SigninModal({ Display, Hide, setDisplay }) {
 
   console.log(Cart);
 
+   
+
   return (
     <>
      
@@ -86,11 +89,10 @@ function SigninModal({ Display, Hide, setDisplay }) {
 
       <Modal
         show={Display}
-        onHide={handleClose}
         aria-labelledby="example-modal-sizes-title-lg"
         className="loginsigup_box"
       >
-        <Modal.Header>
+        <Modal.Header  style={{color:'aliceblue'}}>
           <Modal.Title style={{ margin: "auto" }}>
             {" "}
             <h1
@@ -105,6 +107,8 @@ function SigninModal({ Display, Hide, setDisplay }) {
               Sign in your account
             </h1>
           </Modal.Title>
+          <Button className="bg-primary" variant="button" onClick={closemodal}>< CloseIcon style={{color:'aliceblue'}} /> </Button>
+
         </Modal.Header>
         <Modal.Body>
           <div className="" id="signup" style={{ display: "none" }}>
@@ -208,7 +212,6 @@ function SigninModal({ Display, Hide, setDisplay }) {
         </Modal.Body>
       </Modal>
 
-      {/* <Signup /> */}
     </>
   );
 }

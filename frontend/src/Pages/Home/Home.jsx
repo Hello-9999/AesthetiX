@@ -7,13 +7,11 @@ import { useSelector } from "react-redux";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import Rating from "../../Component/Rating/Rating";
 import Filters from "../../Component/Filters/Filters";
-import LinkBar from "../../Component/linkbar/linkbar";
 import "../Home/Home.css";
 import { useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
-// import {loader1} from '../../Component/loader/loader'
 import loader1 from "../../Component/loader/loader";
-import { InfinitySpin } from "react-loader-spinner";
+import { InfinitySpin, MutatingDots, Oval } from "react-loader-spinner";
 import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
 
 const Home = () => {
@@ -70,7 +68,6 @@ const Home = () => {
     setProduct(actualprod);
     setsearchvalue(searchprod);
   };
-  // console.log(sear)
 
   const navigate = useNavigate();
 
@@ -141,12 +138,12 @@ const Home = () => {
                 ) : (
                   <>
                     <Container
-                      fluid
                       style={{
                         display: "flex",
                         flexWrap: "wrap",
                         marginTop: "2%",
                       }}
+                      className="product-card"
                     >
                       {Product.map((products) => {
                         return (
@@ -156,9 +153,7 @@ const Home = () => {
                                 navigate(`/product/${products.id}`)
                               }
                             >
-                              <Card.Header
-                                style={{ position: "relative", zIndex: "99" }}
-                              >
+                              <Card.Header style={{ position: "relative" }}>
                                 <Card.Title>
                                   <Card.Img src={products.productImage} />
                                 </Card.Title>
@@ -187,9 +182,9 @@ const Home = () => {
                                       textTransform: "capitalize",
                                     }}
                                   >
-                                    {products.brand}
+                                    {products.name}
                                   </h6>
-                                  {products.name}
+                                  <span>{products.brand} </span>
                                 </Card.Title>
 
                                 <Card.Text
@@ -197,6 +192,7 @@ const Home = () => {
                                     textAlign: "center",
                                     marginTop: "30px",
                                   }}
+                                  className="price"
                                 >
                                   <h3>RS : {products.price}</h3>{" "}
                                 </Card.Text>
@@ -214,8 +210,24 @@ const Home = () => {
         </>
       ) : (
         <>
-          <div className="loader">
-            <InfinitySpin width="200" color="#d41313" />{" "}
+          <div className="loader"  id="loader">
+            <Oval 
+              height={80}
+              width={80}
+              color="#4fa94d"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+              ariaLabel="oval-loading"
+              secondaryColor="#4fa94d"
+              strokeWidth={2}
+              strokeWidthSecondary={2}
+
+
+              
+
+            
+            />
           </div>{" "}
         </>
       )}

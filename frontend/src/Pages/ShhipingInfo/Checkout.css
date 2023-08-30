@@ -24,9 +24,7 @@
     color: #dbe0e5;
     letter-spacing: 1.3px;
 }
-.Shipping .MuiOutlinedInput-notchedOutline {
-    /* border-color: rgb(183 183 183); */
-}
+
 .Shipping .PrivateNotchedOutline-legendNotched-4{
     color: #90cdf4;
 
@@ -56,13 +54,9 @@
     height: 1px;
     background-color: currentColor;
     display: block;
-    /* border: 2px solid ; */
-
-    /* display: grid; */
-    /* text-align: center; */
+   
 }
 .Shipping  .link{
-    /* margin-top: 3%; */
     font-size: 1.3rem;
     font-family: 'Lunasima', sans-serif;
     margin-bottom: 5%;

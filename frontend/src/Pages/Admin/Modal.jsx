@@ -4,29 +4,23 @@ import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import { Container, Form } from "react-bootstrap";
 import { Prev } from "react-bootstrap/esm/PageItem";
+import "../Admin/Admin.css";
 
 // Modal
 
 const EditModal = ({
   showModal,
   handleClose,
-  ProdDetail,
-  product,
-  setproduct,
   Editchange,
   AddChange,
-  setname,
-  setbrand,
-  setprice,
-  setcategory,
-  setcountInStock,
-  setdescription,
-  setproductImage,
   setprodValue,
   prodValue,
-
   Edittext,
+  
+
 }) => {
+
+  // console.log(AddChange)
   return (
     <>
       <Modal show={showModal}>
@@ -38,9 +32,9 @@ const EditModal = ({
         <Modal.Body>
           <Form.Group>
             <Container>
-              <div>
+              <div className="modalimg">
                 <img
-                  src={ProdDetail.productImage}
+                  src={prodValue.productImage}
                   alt=""
                   style={{ width: "100px" }}
                 />
@@ -49,6 +43,7 @@ const EditModal = ({
 
             <div>
               <Form.Control
+                className="mb-4"
                 placeholder="Product Name"
                 type="text"
                 value={prodValue.name}
@@ -65,6 +60,7 @@ const EditModal = ({
 
             <div>
               <Form.Control
+                className="mb-4"
                 placeholder="Product Brand"
                 value={prodValue.brand}
                 onChange={(e) =>
@@ -79,6 +75,7 @@ const EditModal = ({
 
             <div>
               <Form.Control
+                className="mb-4"
                 placeholder="Product Category"
                 value={prodValue.category}
                 onChange={(e) =>
@@ -93,6 +90,7 @@ const EditModal = ({
 
             <div>
               <Form.Control
+                className="mb-4"
                 placeholder="Product countInStock"
                 type="Number"
                 value={prodValue.countInStock}
@@ -108,6 +106,7 @@ const EditModal = ({
 
             <div>
               <Form.Control
+                className="mb-4"
                 placeholder="Product Description"
                 value={prodValue.description}
                 onChange={(e) =>
@@ -122,6 +121,7 @@ const EditModal = ({
 
             <div>
               <Form.Control
+                className="mb-4"
                 placeholder="Product Price"
                 type="number"
                 value={prodValue.price}

@@ -7,7 +7,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import "../1page/Home.css";
+import "../1page/1page.css";
 import Homecarousel from "./Homecarousel";
 function Homenav() {
   return (
@@ -15,7 +15,7 @@ function Homenav() {
       <div className="HomeNav">
         <Navbar expand="lg" className="bg-body-tertiary">
           <Container fluid>
-            <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+            <Navbar.Brand href="#">EazyBazar</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Nav

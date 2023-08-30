@@ -11,11 +11,10 @@ import {
   CircularProgress,
 } from "@mui/material";
 import React, { useState } from "react";
-// import { Button } from '@material-ui';
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Card, Col, Row } from "react-bootstrap";
-import "../OrderDetail/OrderDetail.css";
+import '../OrderDetail/OrderDetail.css'
 import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
 import DescriptionIcon from "@mui/icons-material/Description";
 import DeliveryDiningIcon from "@mui/icons-material/DeliveryDining";
@@ -25,7 +24,7 @@ import AssignmentReturnIcon from "@mui/icons-material/AssignmentReturn";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import InfoIcon from "@mui/icons-material/Info";
 import Bar from "../../Component/Navbar/Navbar";
-import { sucesstoast,infotoast } from "../../services/tostify.service";
+import { sucesstoast, infotoast } from "../../services/tostify.service";
 
 const OrderDetail = () => {
   const id = useParams();
@@ -92,22 +91,19 @@ const OrderDetail = () => {
     document.body.appendChild(form);
     form.submit();
 
-    console.log("esewa pay");
   };
 
   const paywithpaypal = (e) => {
     e.preventDefault();
-    console.log("esewa paypal");
   };
 
   return (
     <>
       <div className="OrderDetail" style={{ color: "aliceblue" }}>
         <Bar />
-        <Card>
+        <Card className="crd" >
           <div className="paybtn d-flex">
-
-          <div className="logo mt-4 mx-2 ">
+            <div className="logo mt-4 mx-2 ">
               <h6>
                 {" "}
                 <a href="" style={{ textDecoration: "none" }}>
@@ -118,10 +114,12 @@ const OrderDetail = () => {
             </div>
 
             <div className="d-flex mt-5 " style={{ alignItems: "baseline" }}>
-              <h6>
-                {" "}
-                Total : <span> {Totalprice * Totalqty + 100 + 35} </span>
-              </h6>
+              <div>
+                <h6>
+                  {" "}
+                  Total : <span> {Totalprice * Totalqty + 100 + 35} </span>
+                </h6>
+              </div>
               <div className="pay">
                 {" "}
                 {OrderData.Data.data.payment.paymentMethod === "esewa" ? (
@@ -202,7 +200,9 @@ const OrderDetail = () => {
                   "Cash on delivery" ? (
                     <>
                       <h6 className="deliverydate">{Deliverydate}</h6>{" "}
-                      {sucesstoast("Get ready to enjoy your order. Our delivery team will collect the payment when they drop off your goodies.")}
+                      {sucesstoast(
+                        "Get ready to enjoy your order. Our delivery team will collect the payment when they drop off your goodies."
+                      )}
                     </>
                   ) : (
                     <>
@@ -211,7 +211,9 @@ const OrderDetail = () => {
                           "esewa") ||
                       "PayPal" ? (
                         <>
-                          {infotoast('Secure Checkout Ahead! Your payment is in safe hands. we"re  ready to process your order.')}
+                          {infotoast(
+                            'Secure Checkout Ahead! Your payment is in safe hands. we"re  ready to process your order.'
+                          )}
                           <Alert severity="error"> Not Paid!!</Alert>{" "}
                         </>
                       ) : (
@@ -285,7 +287,7 @@ const OrderDetail = () => {
             style={{ justifyContent: "space-around", marginTop: "5%" }}
           >
             <div className="payment col-5">
-              <h4>Payment</h4>
+              <h4>Payment Method </h4>
               <p style={{ textTransform: "capitalize", letterSpacing: "1px" }}>
                 {" "}
                 {OrderData.Data.data.payment.paymentMethod}
@@ -293,19 +295,18 @@ const OrderDetail = () => {
             </div>
 
             <div className="delivery col-5">
-              <h4>Delivery</h4>
+              <h4>Delivery Address</h4>
               <div className="add_body">
-                <p>Address</p>
+                {/* <p>Address</p> */}
                 <div className="address">
                   <p>
                     <b>{OrderData.Data.data.shipping.address}</b>
                   </p>
 
                   <p>
-                    <b>
+                    
                       {OrderData.Data.data.shipping.city} ,
-                      {OrderData.Data.data.shipping.country}{" "}
-                    </b>
+                       {OrderData.Data.data.shipping.country}{" "}
                   </p>
 
                   <p>
@@ -323,7 +324,7 @@ const OrderDetail = () => {
             </div>
           </div>
           <hr />
-          <div className="d-flex" style={{ justifyContent: "space-around" }}>
+          <div className="d-flex summary-box" style={{ justifyContent: "space-around" }}>
             <div className="need_help col-6" style={{ marginLeft: "10%" }}>
               <div className="issue">
                 <p>
@@ -354,7 +355,7 @@ const OrderDetail = () => {
               </div>
             </div>
 
-            <div className="Summary col-5">
+            <div className="Summary col-6">
               <div
                 className="total d-flex"
                 style={{ justifyContent: "space-around" }}

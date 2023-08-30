@@ -76,11 +76,7 @@ const Signin = () => {
 
   return (
     <>
-      <Container
-        fluid
-        className="login-form d-flex"
-        style={{ backgroundColor: "red", height: "100vh" }}
-      >
+      <Container fluid className="login-form d-flex" style={{height:'100vh'}}>
         <Container fluid className="login-text col-6">
           <div className="logo mt-4 mx-2">
             <h6>
@@ -115,7 +111,6 @@ const Signin = () => {
           <h1
             style={{
               textAlign: "center",
-              // marginTop: "5%",
               marginBottom: "2%",
               color: "aliceblue",
             }}
@@ -173,7 +168,7 @@ const Signin = () => {
                   </IconButton>
 
                   <Form.Group
-                    className="d-flex"
+                    className="d-flex rember"
                     style={{
                       alignItems: "center",
                       justifyContent: "space-between",

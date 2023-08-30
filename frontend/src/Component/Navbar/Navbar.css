@@ -1,126 +1,157 @@
-
-
-.Navbar .nav-icon  svg{
+.Navbar .nav-icon svg {
 
     font-size: 2rem !important;
-} 
-.Navbar form{
+}
+
+.Navbar form {
     width: 40%;
 }
-.Navbar{
+
+.Navbar {
     background-color: #1a202c;
     color: #ececec;
 }
+
 .Navbar .MuiBox-root button .dropdown-menu[data-bs-popper] {
 
     left: -60%;
 }
-.Navbar  .navbar-brand{
+
+.Navbar .navbar-brand {
     color: #ececec !important;
 }
-.Navbar .dropdown-toggle::after{
+
+.Navbar .dropdown-toggle::after {
     display: none;
 }
-.Navbarr #nav:hover{
-    color: #D3D3D3 ;
+
+.Navbarr #nav:hover {
+    color: #D3D3D3;
 }
-.Navbarr #nav{
+
+.Navbarr #nav {
     display: flex;
     align-items: center;
     color: #BFBFBF;
     font-size: 1.3rem;
-   
+
 }
+
 .Navbarr {
-    background-color: #1A202C   !important;
+    background-color: #1A202C !important;
     border-bottom: 1px solid black;
 }
-.Navbarr .navbar-brand{
-    color:  #FFFFFF ;
+
+.Navbarr .navbar-brand {
+    color: #FFFFFF;
     font-size: 1.6rem;
     margin-left: 1rem;
 }
-.Navbarr #links{
+
+.Navbarr #links {
     margin-left: 15% !important;
-        font-size: 1.1rem;
-        gap: 3% !important;
-        width: 100%;
-        font-family: 'Poppins', sans-serif;
-        transition: ease-in-out 0.1s;
-        
-       
+    font-size: 1.1rem;
+    gap: 3% !important;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    transition: ease-in-out 0.1s;
+
+
 
 
 }
 
 
-.Navbarr #links a.nav-link:hover{
+.Navbarr #links a.nav-link:hover {
     color: #2196F3 !important;
     border-bottom: 2px dotted #FF9800;
     border-radius: 2px;
 
 
 }
-.Navbarr #links  a.nav-link{
-    color:  #FFFFFF ;
-   
+
+.Navbarr #links a.nav-link {
+    color: #FFFFFF;
+
 
 
 }
 
-.Navbarr .nav-icon svg{
-    color: #BFBFBF ;
+.Navbarr .nav-icon svg {
+    color: #BFBFBF;
     font-size: 2rem;
 }
+
 .Navbarr .nav-icon button span h6 svg:hover {
-    color: #D3D3D3  ;
+    color: #D3D3D3;
 }
-.Navbarr .nav-icon{
+
+.Navbarr .nav-icon {
     margin-right: 5%;
 }
 
-.Navbarr .nav-icon button span h6{
-    font-size: 1.1rem !important; 
+.Navbarr .nav-icon button span h6 {
+    font-size: 1.1rem !important;
 }
+
 .second_nav {
     background-color: #262F3D;
 
 }
-.second_nav .navbar-brand h5{
-    color: #efdada ;
+
+.second_nav .navbar-brand h5 {
+    color: #efdada;
 }
-.second_nav .filter button{
+
+.second_nav .filter button {
     width: 20%;
 }
-.second_nav input{
+
+.second_nav input {
     font-size: 1.2rem;
 }
-button.navbar-toggler.collapsed{
+
+button.navbar-toggler.collapsed {
     background-color: #D3D3D3;
 }
 
- .logo h6{
+.logo h6 {
     font-size: 1.5rem;
 }
-.logo h6 a{
+
+.logo h6 a {
     font-family: 'M PLUS 1p', sans-serif;
     color: #FF9800;
 
 }
- .logo h6 a span{
+
+.logo h6 a span {
     font-family: 'Orbitron', sans-serif;
     color: #2196F3;
 
 }
 
-.nav-item.show.dropdown h6{
+.nav-item.show.dropdown h6 {
     font-family: 'M PLUS 1p', sans-serif;
 
 
 }
-.Navbarr{
-    position: sticky;
-        top: 0;
-        z-index: 2;
 
+.Navbarr {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
+}
+.navbar-toggler{
+    background-color: aliceblue  !important;
+}
+@media screen and (max-width :320px) {
+    .Navbarr .navbar-brand {
+        font-size: 1rem;
+        margin-left: 0rem;
+    }
+    .css-1guk29{
+        display: block !important;
+    }
 }

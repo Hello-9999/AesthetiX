@@ -71,12 +71,34 @@ const Signup = () => {
       fluid
       className="sign-up d-flex "
       style={{
-        backgroundColor: "green",
-        height: "100vh",
+
         padding: "0",
         color: "aliceblue",
       }}
     >
+      <Container fluid className="signup-text col-6">
+        <div className="logo mt-4 mx-2">
+          <h6>
+            {" "}
+            <a href="" style={{ textDecoration: "none" }}>
+              {" "}
+              Eazy<span>Bazar. </span>{" "}
+            </a>
+          </h6>
+        </div>
+        <Container
+          className="Text "
+          style={{ textAlign: "center", marginTop: "30%", width: "80%" }}
+        >
+          <h4 style={{ fontSize: "2.5rem" }} className="second-title mt-3">
+            Sign Up Today! 🌟{" "}
+          </h4>
+          <p className="para mt-5" style={{ fontSize: "1.2rem" }}>
+            🎉 Join us at EazyBazar ! Sign up today to access a tailored
+            shopping experience, exclusive deals, and more. Let's get started!"
+          </p>
+        </Container>
+      </Container>
       <Container className="col-6 signup-form">
         <h1
           style={{
@@ -201,30 +223,6 @@ const Signup = () => {
             </Button>
           </Form>
         </div>
-      </Container>
-
-      <Container fluid className="signup-text col-6">
-        <div className="logo mt-4 mx-2">
-          <h6>
-            {" "}
-            <a href="" style={{ textDecoration: "none" }}>
-              {" "}
-              Eazy<span>Bazar. </span>{" "}
-            </a>
-          </h6>
-        </div>
-        <Container
-          className="Text "
-          style={{ textAlign: "center", marginTop: "30%", width: "80%" }}
-        >
-          <h4 style={{ fontSize: "2.5rem" }} className="second-title mt-3">
-            Sign Up Today! 🌟{" "}
-          </h4>
-          <p className="para mt-5" style={{ fontSize: "1.2rem" }}>
-            🎉 Join us at EazyBazar ! Sign up today to access a tailored
-            shopping experience, exclusive deals, and more. Let's get started!"
-          </p>
-        </Container>
       </Container>
     </Container>
   );
