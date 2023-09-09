@@ -29,7 +29,7 @@ const OrderSummary = () => {
   const [placeOrder, setplaceOrder] = useState([]);
   const navigate = useNavigate();
 
-  console.log(cart.CartItem);
+  console.log(cart);
   const total = cart.CartItem.reduce((total, next) => {
     return total + next.price;
   }, 0);
@@ -45,7 +45,7 @@ const OrderSummary = () => {
 
   const Proceed = async (e) => {
     e.preventDefault();
-   
+
     const Orderdata = {
       orderItems: cart.CartItem,
       shipping: cart.ShippingAddress,
@@ -65,16 +65,17 @@ const OrderSummary = () => {
 
       dispatch(PlaceorderData(response.data));
 
-      setid(response.data.data._id);
+      // setid(response.data.data._id);
       setstatus(response.data.status);
+      navigate(`/order/${response.data.data._id}`)
     } else {
     }
   };
 
   return (
     <>
-      {console.log(status, "sus")}
       {status === "success" ? (
+        
         <>
           <div className="loader">
             <Triangle
@@ -82,13 +83,14 @@ const OrderSummary = () => {
               width="80"
               color="#4fa94d"
               ariaLabel="triangle-loading"
-              wrapperStyle={{}}
+              wrapperStyle={{}} 
               wrapperClassName=""
               visible={true}
             />
           </div>
-         {navigate(`/order/${id}`)}
-        </>
+
+        </> 
+         
       ) : (
         <>
           <div className="OrderSummary" style={{ color: "aliceblue" }}>

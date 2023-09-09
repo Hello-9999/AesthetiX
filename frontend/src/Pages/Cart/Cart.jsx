@@ -4,7 +4,12 @@ import { Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import DeleteIcon from "@mui/icons-material/Delete";
 import "../Cart/Cart.css";
-import { CartQty, RemovefromCart, price } from "../../slice/Cartslice";
+import {
+  Addtocart,
+  CartQty,
+  RemovefromCart,
+  price,
+} from "../../slice/Cartslice";
 import { Link, useNavigate } from "react-router-dom";
 import Signin from "../Signin/Signin";
 import SigninModal from "./Modal";
@@ -21,7 +26,6 @@ const Cart = () => {
 
   const [tax, settax] = useState(50);
   const dispatch = useDispatch();
-  const [cartQty, setcartQty] = useState(0);
   const [productQty, setproductQty] = useState({});
   const [productPrice, setproductprice] = useState("");
   const navigate = useNavigate();
@@ -37,8 +41,7 @@ const Cart = () => {
   const Deletehandler = (e, id) => {
     e.preventDefault();
     dispatch(RemovefromCart(id));
-    errortoast('product has been delete Sucessfully !!')
-    
+    errortoast("product has been delete Sucessfully !!");
   };
 
   const checkout = (e) => {
@@ -47,25 +50,43 @@ const Cart = () => {
     if (profile.isLoggediin === true) {
       navigate("/shipping");
     } else {
-      warningtoast('You need to sign in to proceed to checkout !! ')
+      warningtoast("You need to sign in to proceed to checkout !! ");
       setDisplay(true);
       setHide(false);
     }
   };
-  const closemodal =(e)=>{
-    e.preventDefault()
-    console.log('first')
-    setDisplay(false)
-
-  }
+  const closemodal = (e) => {
+    e.preventDefault();
+    console.log("first");
+    setDisplay(false);
+  };
   const Shopnow = (e) => {
     e.preventDefault();
     navigate("/shop");
   };
+
+  const handleaddcart = (product, Qty) => {
+    const data = {
+      productName: product.productName,
+      productImage: product.productImage,
+      price: Number(product.price),
+      productId: product.productId,
+      productStock: product.productStock,
+      qty: Number(Qty),
+
+      productBrand: product.productBrand,
+    };
+
+    dispatch(Addtocart(data));  };
   const id = localStorage.getItem("id");
   return (
     <>
-      <SigninModal closemodal={closemodal} Display={Display} Hide={Hide} setDisplay={setDisplay} />
+      <SigninModal
+        closemodal={closemodal}
+        Display={Display}
+        Hide={Hide}
+        setDisplay={setDisplay}
+      />
 
       {product.CartItem.length === 0 ? (
         <>
@@ -125,7 +146,6 @@ const Cart = () => {
                             justifyContent: "space-between",
                           }}
                         >
-                          
                           <div className="col-6 cart-img">
                             <img
                               src={cartI.productImage}
@@ -133,53 +153,54 @@ const Cart = () => {
                             />
                           </div>
                           <div className="cart-detail">
-
-                          <div
-                            className="name-brand col-2"
-                            style={{ textTransform: "capitalize" }}
-                          >
-                            <h5>{cartI.productName}</h5>
-                            <p> {`  ${cartI.productBrand}`}</p>
-                          </div>
-                          <div className="col-1">
-                            <select
-                              onChange={(e) =>
-                                setcartQty(Number(e.target.value))
-                              }
+                            <div
+                              className="name-brand col-2"
+                              style={{ textTransform: "capitalize" }}
                             >
-                              {[...Array(cartI.productStock).keys()].map(
-                                (Qty) => {
-                                  return (
-                                    <>
-                                      {
-                                        <option value={Qty + 1}>
-                                          {Qty + 1}
-                                        </option>
-                                      }
-                                    </>
-                                  );
+                              <h5>{cartI.productName}</h5>
+                              <p> {`  ${cartI.productBrand}`}</p>
+                            </div>
+                            <div className="col-1">
+                              <select
+                                onChange={(e) =>
+                                  handleaddcart(cartI, e.target.value)
                                 }
-                              )}
+                              >
+                                {[...Array(cartI.productStock).keys()].map(
+                                  (Qty) => {
+                                    return (
+                                      <>
+                                        {
+                                          <option value={Qty + 1}>
+                                            {Qty + 1}
+                                          </option>
+                                        }
+                                      </>
+                                    );
+                                  }
+                                )}
 
-                              <option value={cartI.qty} selected disabled>
-                                {cartI.qty}
-                              </option>
-                            </select>
-                          </div>
+                                <option value={cartI.qty} selected disabled>
+                                  {cartI.qty}
+                                </option>
+                              </select>
+                            </div>
 
-                          <div className="col-2">
-                            <p className="price"> {`Rs: ${cartI.price}`}</p>
-                          </div>
-                          <div className="col-1">
-                            <Button
-                              variant="contained"
-                              className="btn bg-danger"
-                              style={{ color: "white" }}
-                              onClick={(e) => Deletehandler(e, cartI.productId)}
-                            >
-                              <DeleteIcon />
-                            </Button>
-                          </div>
+                            <div className="col-2">
+                              <p className="price"> {`Rs: ${cartI.price}`}</p>
+                            </div>
+                            <div className="col-1">
+                              <Button
+                                variant="contained"
+                                className="btn bg-danger"
+                                style={{ color: "white" }}
+                                onClick={(e) =>
+                                  Deletehandler(e, cartI.productId)
+                                }
+                              >
+                                <DeleteIcon />
+                              </Button>
+                            </div>
                           </div>
                         </div>
                       );
@@ -188,10 +209,7 @@ const Cart = () => {
                 </Col>
 
                 <>
-                  <Col
-                    className=" Summary col-4"
-                    md={4}
-                  >
+                  <Col className=" Summary col-4" md={4}>
                     <Col className="summary_box">
                       <div className="title">
                         {" "}

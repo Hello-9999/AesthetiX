@@ -14,7 +14,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Card, Col, Row } from "react-bootstrap";
-import '../OrderDetail/OrderDetail.css'
+import "../OrderDetail/OrderDetail.css";
 import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
 import DescriptionIcon from "@mui/icons-material/Description";
 import DeliveryDiningIcon from "@mui/icons-material/DeliveryDining";
@@ -24,14 +24,17 @@ import AssignmentReturnIcon from "@mui/icons-material/AssignmentReturn";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import InfoIcon from "@mui/icons-material/Info";
 import Bar from "../../Component/Navbar/Navbar";
-import { sucesstoast, infotoast } from "../../services/tostify.service";
+import {
+  sucesstoast,
+  infotoast,
+  errortoast,
+} from "../../services/tostify.service";
 
 const OrderDetail = () => {
   const id = useParams();
   console.log(id);
 
   const OrderData = useSelector((state) => state.OrderDetail);
-  console.log(OrderData);
 
   const date = new Date();
 
@@ -90,7 +93,6 @@ const OrderDetail = () => {
     }
     document.body.appendChild(form);
     form.submit();
-
   };
 
   const paywithpaypal = (e) => {
@@ -101,7 +103,7 @@ const OrderDetail = () => {
     <>
       <div className="OrderDetail" style={{ color: "aliceblue" }}>
         <Bar />
-        <Card className="crd" >
+        <Card className="crd">
           <div className="paybtn d-flex">
             <div className="logo mt-4 mx-2 ">
               <h6>
@@ -198,30 +200,33 @@ const OrderDetail = () => {
                   {" "}
                   {OrderData.Data.data.payment.paymentMethod ===
                   "Cash on delivery" ? (
-                    <>
-                      <h6 className="deliverydate">{Deliverydate}</h6>{" "}
-                      {sucesstoast(
-                        "Get ready to enjoy your order. Our delivery team will collect the payment when they drop off your goodies."
-                      )}
-                    </>
+                    ((
+                      <>
+                        <h6 className="deliverydate">{Deliverydate}</h6>
+                      </>
+                    ),
+                    sucesstoast(
+                      "Get ready to enjoy your order. Our delivery team will collect the payment when they drop off your goodies."
+                    ))
                   ) : (
                     <>
-                      {(OrderData.Data.data.isPaid === false &&
-                        OrderData.Data.data.payment.paymentMethod ===
-                          "esewa") ||
-                      "PayPal" ? (
+                      {OrderData.Data.data.isPaid === false &&
+                      OrderData.Data.data.payment.paymentMethod === "esewa" &&
+                      "paypal" ? (
                         <>
                           {infotoast(
                             'Secure Checkout Ahead! Your payment is in safe hands. we"re  ready to process your order.'
                           )}
-                          <Alert severity="error"> Not Paid!!</Alert>{" "}
                         </>
                       ) : (
-                        <> 20 / 08/ 2023</>
+                        <>
+                          {" "}
+                          <Alert severity="error"> Not Paid!!</Alert>{" "}
+                        </>
                       )}
                     </>
-                  )}{" "}
-                </p>{" "}
+                  )}
+                </p>
               </p>
             </div>
           </div>
@@ -304,9 +309,8 @@ const OrderDetail = () => {
                   </p>
 
                   <p>
-                    
-                      {OrderData.Data.data.shipping.city} ,
-                       {OrderData.Data.data.shipping.country}{" "}
+                    {OrderData.Data.data.shipping.city} ,
+                    {OrderData.Data.data.shipping.country}{" "}
                   </p>
 
                   <p>
@@ -324,7 +328,10 @@ const OrderDetail = () => {
             </div>
           </div>
           <hr />
-          <div className="d-flex summary-box" style={{ justifyContent: "space-around" }}>
+          <div
+            className="d-flex summary-box"
+            style={{ justifyContent: "space-around" }}
+          >
             <div className="need_help col-6" style={{ marginLeft: "10%" }}>
               <div className="issue">
                 <p>

@@ -53,7 +53,7 @@ export const OrderData = async (url, data, JWT) => {
 
     return response;
   } catch (error) {
-    error(error.response.data.error);
+    errortoast(error.response.data.error)
   }
 };
 

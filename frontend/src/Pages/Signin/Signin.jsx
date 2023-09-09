@@ -72,7 +72,6 @@ const Signin = () => {
     setvisible(!visible);
   };
 
-  console.log(visible);
 
   return (
     <>

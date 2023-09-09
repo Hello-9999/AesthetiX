@@ -60,7 +60,6 @@ function SigninModal({ Display, Hide, setDisplay , closemodal }) {
       setloading(false);
     }
 
-    console.log(response);
   };
 
   const handleClose = () => setShow(false);
@@ -70,13 +69,11 @@ function SigninModal({ Display, Hide, setDisplay , closemodal }) {
 
   const createaccount = (e) => {
     e.preventDefault();
-    console.log("firsggt");
   
     setCart(true);
     navigate("/signup");
   };
 
-  console.log(Cart);
 
    
 
@@ -130,7 +127,6 @@ function SigninModal({ Display, Hide, setDisplay , closemodal }) {
               </div>
             </p>
 
-            {console.log(createaccount)}
             <Container className="login-form">
               <div className="login" style={{ width: "100%" }}>
                 <Form onSubmit={loginsubmithandler} className="mt-5">
