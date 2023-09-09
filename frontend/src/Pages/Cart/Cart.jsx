@@ -15,7 +15,7 @@ import Signin from "../Signin/Signin";
 import SigninModal from "./Modal";
 import Bar from "../../Component/Navbar/Navbar";
 import WestIcon from "@mui/icons-material/West";
-import image from '../../../image/pngwing.com.png'
+import image from '../image/pngwing.com.png'
 import { errortoast, warningtoast } from "../../services/tostify.service";
 
 const Cart = () => {
